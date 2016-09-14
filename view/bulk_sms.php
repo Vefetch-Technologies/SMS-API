@@ -4,13 +4,14 @@
 	<h1>Bulk SMS</h1>
 	<hr style="border-top: 1px solid #191616">
 </div>
-	<table class="table" style="width:50%;">
+<h3>Upload File</h3>
+	<table class="table">
 		<tr>
 			<td>
-				<p>Upload a File :- </p>
+				<input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required>
 			</td>
 			<td>
-				<input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required>
+				<button type="submit" class="btn btn-success" style="width: 208px;">Upload</button>
 			</td>
 		</tr>
 	</table>
@@ -46,8 +47,6 @@
 
 			</tr>
 		</table>
-
-		
 	</div>
 	
 

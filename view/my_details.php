@@ -5,7 +5,7 @@
 	<hr style="border-top: 1px solid #191616">
 </div>
 	<table class="table" style="width:44%;">
-	<tr>
+		<tr>
 			<td>
 				<p>Name/Organization :- </p>
 			</td>
@@ -27,6 +27,14 @@
 			</td>
 			<td>
 				<textarea class="form-control" rows="5" id="comment">Vattur Mettupalayam, Thoratikadu, Tiruchengode(T.K) Namakkal(D.t)</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Password :- </p>
+			</td>
+			<td>
+				<input type="password" name="password" class="form-control" placeholder="password" value="9842972047" required autofocus><br/>
 			</td>
 		</tr>
 		<tr>
