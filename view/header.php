@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/_all-skins.min.css">
 <script src="../js/jquery-2.2.3.min.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow sidebar-mini">
 <div class="wrapper">
   <!-- header -->
   <header class="main-header">
