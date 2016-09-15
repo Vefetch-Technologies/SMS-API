@@ -21,7 +21,7 @@
     <form>
       <input type="email" name="email" placeholder="E-mail">
       <input type="password" name="pass" placeholder="Password">
-      <a href="single_sms.php">Log in</a>
+      <a href="add_user.php">Log in</a>
       
   </form>
   </div>

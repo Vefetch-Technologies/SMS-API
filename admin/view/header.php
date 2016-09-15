@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/_all-skins.min.css">
 <script src="../js/jquery-2.2.3.min.js"></script>
 </head>
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini">
 <div class="wrapper">
   <!-- header -->
   <header class="main-header">
@@ -53,11 +53,11 @@
       <section class="sidebar">
         <ul class="sidebar-menu">
           <!-- <li><a href="home.php"><i class="fa fa-circle-o text-red "></i> <span>Dashboard</span></a></li> -->
-          <li><a href="single_sms.php"><i class="fa fa-circle-o text-yellow"></i> <span>Single SMS</span></a></li>
-          <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Bulk SMS</span></a></li>
+          <li><a href="add_user.php"><i class="fa fa-circle-o text-yellow"></i> <span>Add User</span></a></li>
+        <!--   <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Bulk SMS</span></a></li>
           <li><a href="mark_upload.php"><i class="fa fa-circle-o text-red"></i> <span>Mark Upload</span></a></li>
-          <!-- <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li> -->
-          <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li>
+          <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li>
+          <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li> -->
           
           
         </ul>
