@@ -54,7 +54,7 @@
         <ul class="sidebar-menu">
           <!-- <li><a href="home.php"><i class="fa fa-circle-o text-red "></i> <span>Dashboard</span></a></li> -->
           <li><a href="add_user.php"><i class="fa fa-circle-o text-yellow"></i> <span>Add User</span></a></li>
-        <!--   <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Bulk SMS</span></a></li>
+          <!-- <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Bulk SMS</span></a></li>
           <li><a href="mark_upload.php"><i class="fa fa-circle-o text-red"></i> <span>Mark Upload</span></a></li>
           <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li>
           <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li> -->

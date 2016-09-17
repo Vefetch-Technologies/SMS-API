@@ -13,6 +13,16 @@
 				</div>
 				<?php
 				break;
+				case 'folder_not_created':
+				?>
+				<div>
+					<br><br><br>
+					<h1 style="text-align: center;font-size: 196px;">404</h1>
+					<h3 style="text-align: center;font-size: 50px;">Not able to folder!, Something went wrong! &#128527;</h3><br/>
+					<h4 style="text-align: center;font-size: 25px;">Please contact <a href="https://sudhakarannadurai.wordpress.com/aboutme/">Sudhakar Annadurai</a></h4>
+				</div>
+				<?php
+				break;
 		}
 	}else{ ?>
 		<div>
