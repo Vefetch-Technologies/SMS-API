@@ -23,5 +23,5 @@
 	}
 
 	function test_for_git(){
-		echo "test";
+		echo "test ";
 	}
