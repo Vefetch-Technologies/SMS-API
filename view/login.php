@@ -18,7 +18,7 @@
       <img src="../img/circle_close_delete_-128.png"></img>
     </span>
 
-    <form>
+    <form action="..//validate.php">
       <input type="email" name="email" placeholder="E-mail">
       <input type="password" name="pass" placeholder="Password">
       <a href="single_sms.php">Log in</a>
