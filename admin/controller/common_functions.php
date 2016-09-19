@@ -19,3 +19,7 @@
 			echo "folder created!";
 		}
 	}
+
+	function is__array($value){
+		return is_array($value);
+	}
