@@ -6,16 +6,20 @@
 	$con = db_connect();
 	$email = sanitize($_POST['email'], $con);
 	$password = sanitize($_POST['password'], $con);
-	$id = get_id($email, $password, $con);
-	if($id!="empty"){
-		print_r($id);
+	$raw_data = get_raw_data($email, $password, $con);
+	if($raw_data!="empty"){
+		print_r($raw_data);
 	}else{
 		echo "no data";
 	}
 
-	function get_id($email, $password, $con){
+	function get_raw_data($email, $password, $con){
 		$selected_row = select('*', 'users', array("email_id"=>$email, "password"=>$password), $con);
 		return $selected_row;
+	}
+
+	function create_session($raw_data){
+
 	}
 
 
