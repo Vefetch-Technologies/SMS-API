@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2016 at 09:37 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Generation Time: Sep 20, 2016 at 03:25 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `sms_api`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sms_count`
+--
+
+CREATE TABLE `sms_count` (
+  `id` int(255) NOT NULL,
+  `unicode` int(255) NOT NULL,
+  `normal` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sms_count`
+--
+
+INSERT INTO `sms_count` (`id`, `unicode`, `normal`) VALUES
+(1, 70, 160),
+(2, 134, 306),
+(3, 201, 459),
+(4, 268, 612),
+(5, 335, 765),
+(6, 402, 918),
+(7, 469, 1071),
+(8, 536, 1224);
 
 -- --------------------------------------------------------
 
@@ -44,16 +70,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`) VALUES
-(1, 'vani vidyalaya', 'szdfjasd', 'asudahakr@live.in', 'vattur mettupalayam', 'vvmhss', '2016-09-16 08:02:13', 0, 'true', 9842972047),
-(3, 'vani vidyalaya', 'zsdf', 'asudahaksar@live.in', 'vattur mettupalayam', 'vvmhss', '2016-09-16 08:07:01', 0, 'true', 9842972047),
-(5, 'rubak', 'ezrubak', 'rubaktechie@gmail.com', 'Sankagiri', 'erubak', '2016-09-16 08:29:17', 0, 'true', 8940698743),
-(6, 'rubak', 'ezrubak', 'ezrubak@gmail.com', 'Sankagiri', 'erubak', '2016-09-16 08:30:37', 0, 'true', 8940698743),
-(7, 'Gautham', 'gautham', 'gauthamrg@gmail.com', 'Sankagiri', 'gautam', '2016-09-16 08:50:33', 0, 'true', 8695806252),
-(8, 'Gautham', 'gauthma', 'gauthamrgramaingsam@gmail.com', 'Sankagiri', 'gautam', '2016-09-16 08:52:15', 0, 'true', 8695806252);
+(1, 'karthik', 'test', 'kiotkarthik@gmail.com', 'KIOT', 'karthi', '2016-09-19 05:12:54', 0, 'true', 9543277017);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `sms_count`
+--
+ALTER TABLE `sms_count`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unicode` (`unicode`),
+  ADD UNIQUE KEY `normal` (`normal`);
 
 --
 -- Indexes for table `users`
@@ -67,10 +96,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `sms_count`
+--
+ALTER TABLE `sms_count`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
