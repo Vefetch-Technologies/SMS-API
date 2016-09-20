@@ -18,12 +18,11 @@
       <img src="../img/circle_close_delete_-128.png"></img>
     </span>
 
-    <form action="..//validate.php">
-      <input type="email" name="email" placeholder="E-mail">
-      <input type="password" name="pass" placeholder="Password">
-      <a href="single_sms.php">Log in</a>
-      
-  </form>
+    <form action="../controller/login_controller.php" method="post">
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Log in">
+    </form>
   </div>
 
 

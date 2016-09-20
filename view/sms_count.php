@@ -27,8 +27,6 @@
 		}
 	}
 </script>
-
-
 <?php 
 	function get_check_code($for){
 		include_once '../admin/model/db.php';
@@ -56,3 +54,4 @@
 		echo $condition;
 	}
 ?>
+

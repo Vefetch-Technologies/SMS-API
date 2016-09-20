@@ -28,6 +28,10 @@
 		}
 	}
 
+	function get_array_from_object($result){
+		return mysqli_fetch_array($result, MYSQLI_ASSOC);
+	}
+
 	function sanitize($input, $con){
 		return mysqli_real_escape_string($con, $input);
 	}

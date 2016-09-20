@@ -1,3 +1,11 @@
+<?php 
+include_once '../controller/default_functions.php';
+landing_page_session_check();
+$userDetails = $_SESSION['userDetails'];
+$details = extract_user_details($userDetails);
+$id = $details['id'];
+$date = date("Y-m-d", time());
+?>
 <!DOCTYPE html>
 <html>
 <head>

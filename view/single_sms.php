@@ -30,7 +30,7 @@
 			</td>
 			<td>
 				<textarea class="form-control" rows="5" id="comment" onkeyup="countChar(this)"></textarea>
-				<div id="charNum"></div>
+				<div id="charNum">Number of SMS will Send = 1 (0)</div>
 			</td>
 		</tr>
 		<tr>
