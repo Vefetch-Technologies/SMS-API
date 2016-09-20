@@ -19,7 +19,7 @@
 	}
 
 	function create_session($raw_data){
-
+		echo "test";
 	}
 
 
