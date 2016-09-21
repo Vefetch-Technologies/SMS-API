@@ -1,4 +1,7 @@
-<?php include_once 'header.php'; ?>
+<?php 
+	include_once 'header.php';
+	session_start(); 
+?>
 
 <div>
 	<h1>Single SMS</h1>
@@ -10,10 +13,7 @@
 				<p>Sender ID :- </p>
 			</td>
 			<td>
-				<select class="form-control">
-					<option>VVMHSS</option>
-					<option>VANISC</option>
-				</select>
+				<input type="text" name="sender_id" value=<?php echo $_SESSION["sender_id"] ?>>
 			</td>
 		</tr>
 		<tr>
