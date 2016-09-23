@@ -1,4 +1,5 @@
-<?php include_once 'header.php'; ?>
+
+<!-- <?php //include_once 'header.php'; ?>
 
 	<div>
 		<h1>Today's SMS Count</h1>
@@ -50,4 +51,4 @@
 			</div>
 		</div>
 	</div>
-<?php include_once 'footer.php'; ?>
+<?php //include_once 'footer.php'; ?> -->

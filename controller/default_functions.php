@@ -21,4 +21,8 @@ session_start();
 		}
 	}
 
+	function log_out(){
+		session_destroy();   
+	}
+
 ?>

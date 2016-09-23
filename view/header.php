@@ -35,14 +35,14 @@ $date = date("Y-m-d", time());
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../img/pp.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Sudhakar</span>
+              <img src="../img/default.png" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $user_details['user_name']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img src="../img/pp.jpg" class="img-circle" alt="User Image">
+                <img src="../img/default.png" class="img-circle" alt="User Image">
                 <p>
-                  Bye Sudhakar
+                  Bye <?php echo $user_details['user_name']; ?>
                 </p>
               </li>
               <li class="user-footer">
