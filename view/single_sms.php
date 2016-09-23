@@ -18,9 +18,9 @@
 					<select class="form-control" id="sender_id">
 						<?php
 							if(is__array($user_details['sender_id'])){
-								// foreach ($user_details['sender_id'] as $key => $sender_id) {
-								// 	echo $sender_id;
-								// } 
+								foreach ($user_details['sender_id'] as $key => $sender_id) {
+									echo $sender_id;
+								} 
 							}else{
 								echo "<option>".$user_details['sender_id']."</option>";
 							}

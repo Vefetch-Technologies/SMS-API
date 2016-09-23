@@ -7,7 +7,7 @@
 		} else {
 			<?php get_check_code("normal"); ?>
 		}
-	};
+	}
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		if(document.getElementById('unicode').checked) {
@@ -40,10 +40,10 @@
 		}
         console.log(sender_id+ "," + mobile_numbers+ "," + message+ "," + unicode);
 		$.ajax({
-			type: "POST",
-			url: "send_sms.php",
-			data: {item_name : item_name},
-			success: function(data) {            
+			// type: "POST",
+			url: "../controller/send_sms.php",
+			success: function(data) {  
+				console.log(data);          
 			}
 		});
 
@@ -59,7 +59,7 @@
 			$sql = "SELECT `$for` FROM `sms_count`";
 		}
 		$result = execute_query($sql, $conn);
-		while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+		while($row = mysqli_fetch_array($result)) {
 			$selected_rows[] = $row[$for];
 		}
 		
