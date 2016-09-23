@@ -1,3 +1,7 @@
+<?php 
+  include_once '../controller/default_functions.php';
+  login_page_session_check();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +23,13 @@
     </span>
 
     <form action="../controller/login_controller.php" method="post">
+    <?php 
+        if(isset($_GET['type'])){
+          if($_GET['type'] == "login_error"){
+            echo '<p style="color: whitesmoke;text-align: center;font-family: monospace;">Login Failed!</p>';
+         }
+       } 
+       ?>
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="password" name="password" placeholder="Password" required>
       <input type="submit" value="Log in">

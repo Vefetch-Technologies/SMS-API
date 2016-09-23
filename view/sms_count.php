@@ -9,7 +9,7 @@
 		}
 	};
 	$('body').on('click', "#unicode", function(){
-		len = $("#comment").val().length;
+		len = $("#message").val().length;
 		if(document.getElementById('unicode').checked) {
 			<?php get_check_code("unicode"); ?>
 		} else {
@@ -26,6 +26,28 @@
 		if (theEvent.preventDefault) theEvent.preventDefault();
 		}
 	}
+	$('body').on('click', "#send_single_sms", function(){
+		$("form").submit(function(e){
+			e.preventDefault();
+		});
+         var sender_id = $("#sender_id").val();
+         var mobile_numbers = $("#mobile_numbers").val();
+         var message = $("#message").val();
+        if(document.getElementById('unicode').checked) {
+			var unicode = "checked";
+		} else {
+			var unicode = "not_checked";
+		}
+        console.log(sender_id+ "," + mobile_numbers+ "," + message+ "," + unicode);
+		$.ajax({
+			type: "POST",
+			url: "send_sms.php",
+			data: {item_name : item_name},
+			success: function(data) {            
+			}
+		});
+
+	});
 </script>
 <?php 
 	function get_check_code($for){

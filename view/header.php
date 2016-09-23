@@ -1,9 +1,8 @@
 <?php 
 include_once '../controller/default_functions.php';
 landing_page_session_check();
-$userDetails = $_SESSION['userDetails'];
-$details = extract_user_details($userDetails);
-$id = $details['id'];
+$user_details = $_SESSION['user_details'];
+print_r($user_details);
 $date = date("Y-m-d", time());
 ?>
 <!DOCTYPE html>
