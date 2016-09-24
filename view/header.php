@@ -2,10 +2,8 @@
 include_once '../controller/default_functions.php';
 landing_page_session_check();
 $user_details = $_SESSION['user_details'];
-print_r($user_details);
 $date = date("Y-m-d", time());
 ?>
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">

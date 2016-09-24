@@ -1,5 +1,5 @@
 <?php 
-
+	
 	function send_message($sender_id, $phone_number, $message_content){
 		$conn = sms_db_connect();
 		$sql = "INSERT INTO `MessageOut` (`MessageFrom`, `MessageTo` , `MessageText`) VALUES ('$sender_id', '$phone_number', '$message_content')";
@@ -22,4 +22,9 @@
 
 	function is__array($value){
 		return is_array($value);
+	}
+
+	
+	function emptty($value){
+		return empty($value);
 	}

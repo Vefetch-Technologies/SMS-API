@@ -16,17 +16,5 @@
 		header('Location: ../view/login.php?type=login_error');
 	}
 
-	function get_raw_data($email, $password, $con){
-		$selected_row = select('*', 'users', array("email_id"=>$email, "password"=>$password), $con);
-		return $selected_row;
-	}
-
-	function create_session($data){
-		$user_details = $data['0'];
-		$_SESSION["user_details"] = $user_details;
-		if(isset($_SESSION['user_details'])){
-			return true;
-		}
-		return false;
-	}
+	
 
