@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2016 at 03:25 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Sep 24, 2016 at 02:29 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -70,7 +70,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`) VALUES
-(1, 'karthik', 'test', 'kiotkarthik@gmail.com', 'KIOT', 'karthi', '2016-09-19 05:12:54', 0, 'true', 9543277017);
+(1, 'vani vidyalaya', 'szdfjasd', 'asudahakr@live.in', 'vattur mettupalayam', 'vvmhss', '2016-09-16 08:02:13', 10000, 'true', 9842972047),
+(5, 'rubak', 'ezrubak', 'rubaktechie@gmail.com', 'Sankagiri', 'erubak', '2016-09-16 08:29:17', 10000, 'true', 8940698743),
+(6, 'rubaktechie', 'ezrubak', 'ezrubak@gmail.com', 'Sankagiri', 'EZHRUB', '2016-09-16 08:30:37', 10000, 'true', 8940698743),
+(7, 'Gautham', 'gautham', 'gauthamrg@gmail.com', 'Sankagiri', 'gautam', '2016-09-16 08:50:33', 10000, 'true', 8695806252),
+(8, 'Gautham', 'gauthma', 'gauthamrgramaingsam@gmail.com', 'Sankagiri', 'gautam', '2016-09-16 08:52:15', 10000, 'true', 8695806252);
 
 --
 -- Indexes for dumped tables
@@ -104,7 +108,7 @@ ALTER TABLE `sms_count`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
