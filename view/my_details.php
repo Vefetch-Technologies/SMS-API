@@ -1,6 +1,7 @@
 <?php 
 	include_once 'header.php';
 	include_once '../controller/my_details_controller.php';
+	
  ?>
 <div>
 	<h1><?php echo $user_details['user_name']; ?>, Update your details here.</h1>

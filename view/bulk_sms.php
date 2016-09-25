@@ -5,16 +5,18 @@
 	<hr style="border-top: 1px solid #191616">
 </div>
 <h3>Upload File</h3>
-	<table class="table">
-		<tr>
-			<td>
-				<input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required>
-			</td>
-			<td>
-				<button type="submit" class="btn btn-success" style="width: 208px;">Upload</button>
-			</td>
-		</tr>
-	</table>
+	<form action="../controller/upload.php" method="post" enctype="multipart/form-data">
+		<table class="table">
+			<tr>
+				<td>
+					<input type="file" class="form-control" name="fileToUpload" id="fileToUpload" required>
+				</td>
+				<td>
+					<button type="submit" class="btn btn-success" style="width: 208px;">Upload</button>
+				</td>
+			</tr>
+		</table>
+	</form>
 	<hr style="border-top: 1px solid #191616">
 	<h3>Uploaded Files</h3>
 	<div style="text-align:center;">
@@ -24,7 +26,7 @@
 					<a href="#"> test page .xlxs</a>
 				</td>
 				<td>
-					<button type="submit" class="btn btn-danger" style="width: 208px;">Delete</button>
+					<button type="submit" class="btn btn-danger" style="width: 208px;" >Delete</button>
 				</td>
 
 			</tr>
