@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2016 at 03:25 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Sep 25, 2016 at 11:37 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `sms_api`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `files`
+--
+
+CREATE TABLE `files` (
+  `id` int(255) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `user_id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`id`, `file_name`, `user_id`) VALUES
+(1, '../files/afm447@gmail.com/SmsHistory.19-Sep-2016.csv', 2);
 
 -- --------------------------------------------------------
 
@@ -70,11 +89,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`) VALUES
-(1, 'karthik', 'test', 'kiotkarthik@gmail.com', 'KIOT', 'karthi', '2016-09-19 05:12:54', 0, 'true', 9543277017);
+(1, 'karthik', 'test', 'kiotkarthik@gmail.com', 'KIOT', 'karthi', '2016-09-19 05:12:54', 0, 'true', 9543277017),
+(2, 'Arun', 'afm447', 'afm447@gmail.com', 'Rasipuram', 'Akv', '2016-09-25 08:57:26', 0, 'true', 9715804476);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sms_count`
@@ -96,6 +122,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `sms_count`
 --
 ALTER TABLE `sms_count`
@@ -104,7 +135,7 @@ ALTER TABLE `sms_count`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
