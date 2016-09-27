@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2016 at 11:37 AM
+-- Generation Time: Sep 27, 2016 at 05:51 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -37,7 +37,7 @@ CREATE TABLE `files` (
 --
 
 INSERT INTO `files` (`id`, `file_name`, `user_id`) VALUES
-(1, '../files/afm447@gmail.com/SmsHistory.19-Sep-2016.csv', 2);
+(2, 'student_list_demo.xlsx', 2);
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`) VALUES
-(1, 'karthik', 'test', 'kiotkarthik@gmail.com', 'KIOT', 'karthi', '2016-09-19 05:12:54', 0, 'true', 9543277017),
 (2, 'Arun', 'afm447', 'afm447@gmail.com', 'Rasipuram', 'Akv', '2016-09-25 08:57:26', 0, 'true', 9715804476);
 
 --
@@ -125,7 +124,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `sms_count`
 --

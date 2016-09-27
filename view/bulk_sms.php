@@ -1,5 +1,13 @@
-<?php include_once 'header.php'; ?>
-
+<?php 
+	include_once 'header.php'; 
+	include_once '../admin/model/db.php';
+	include_once '../controller/default_functions.php';
+	$conn = db_connect();
+	$sql = "SELECT * FROM `files` WHERE `id`=".$user_details['id'];
+	echo "$sql";
+	$result = execute_query($sql,$conn);
+	print_r($result);
+?>
 <div>
 	<h1>Bulk SMS</h1>
 	<hr style="border-top: 1px solid #191616">
@@ -18,38 +26,36 @@
 		</table>
 	</form>
 	<hr style="border-top: 1px solid #191616">
+	<?php 
+	if(empty($result)){
+		echo "no data found";
+	}else{
+		while($row = mysqli_fetch_array($result)) {
+				$selected_rows[] = $row;
+			}
+			foreach ($selected_rows as $value) {
+				$file_name[] = $value['file_name'];
+			}
+	?>
 	<h3>Uploaded Files</h3>
 	<div style="text-align:center;">
 		<table class="table">
-			<tr>
-				<td>
-					<a href="#"> test page .xlxs</a>
-				</td>
-				<td>
-					<button type="submit" class="btn btn-danger" style="width: 208px;" >Delete</button>
-				</td>
+			<?php  
+				foreach ($selected_rows as $value) {
+					echo "<tr>";
+						echo "<td>";
+						echo "<a href='view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
+						echo "</td>";
+						echo "<td>";
+						echo "<a href='delete.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a>";
+						echo "</td>";
+					echo "</tr>";
+				}
 
-			</tr>
-			<tr>
-				<td>
-					<a href="#"> test page .xlxs</a>
-				</td>
-				<td>
-					<button type="submit" class="btn btn-danger" style="width: 208px;">Delete</button>
-				</td>
-
-			</tr>
-			<tr>
-				<td>
-					<a href="#"> test page .xlxs</a>
-				</td>
-				<td>
-					<button type="submit" class="btn btn-danger" style="width: 208px;">Delete</button>
-				</td>
-
-			</tr>
+			?>
 		</table>
 	</div>
+	<?php 	} ?>
 	
 
 
