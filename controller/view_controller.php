@@ -5,12 +5,10 @@
 
 	function get_excel_data($path){
 		$Reader = new SpreadsheetReader($path);
+		$temp = 'temp';
 		foreach ($Reader as $Row)
 		{
-			print_r($Row);
-			echo(count($Row));
-			foreach ($Row as $key => $value) {
-				
-			}
+			$total_array[] = $Row;
 		}
+		return $total_array;
 	}

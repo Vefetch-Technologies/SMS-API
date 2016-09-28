@@ -12,7 +12,6 @@
 	    $uploadOk = 0;
 	    echo "Sorry, file already exists.";
 		header('location: ../view/bulk_sms.php?status=file_exists');
-
 	}
 	else
 	{

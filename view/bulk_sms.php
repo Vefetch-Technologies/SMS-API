@@ -4,9 +4,7 @@
 	include_once '../controller/default_functions.php';
 	$conn = db_connect();
 	$sql = "SELECT * FROM `files` WHERE `id`=".$user_details['id'];
-	echo "$sql";
 	$result = execute_query($sql,$conn);
-	print_r($result);
 ?>
 <div>
 	<h1>Bulk SMS</h1>
