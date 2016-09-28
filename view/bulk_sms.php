@@ -3,7 +3,7 @@
 	include_once '../admin/model/db.php';
 	include_once '../controller/default_functions.php';
 	$conn = db_connect();
-	$sql = "SELECT * FROM `files` WHERE `id`=".$user_details['id'];
+	$sql = "SELECT * FROM `files` WHERE `user_id`=".$user_details['id'];
 	$result = execute_query($sql,$conn);
 ?>
 <div>
@@ -29,11 +29,11 @@
 		echo "no data found";
 	}else{
 		while($row = mysqli_fetch_array($result)) {
-				$selected_rows[] = $row;
-			}
-			foreach ($selected_rows as $value) {
-				$file_name[] = $value['file_name'];
-			}
+			$selected_rows[] = $row;
+		}
+		foreach ($selected_rows as $value) {
+			$file_name[] = $value['file_name'];
+		}
 	?>
 	<h3>Uploaded Files</h3>
 	<div style="text-align:center;">
