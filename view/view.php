@@ -5,40 +5,51 @@
 		$file_path = "../files/".$user_details['email_id']."/".$_GET['file_name'];
 		$final_excel_data = get_excel_data($file_path);
 	}
-?>	<div id="">
-		<table class="table table-hover record_table">
-			<thead>
-				<tr>
-					<?php 
-						foreach ($final_excel_data[0] as $key => $heading) {
-							echo "<th>".$heading."</th>";
-						} 
-						unset($final_excel_data[0]);
-					?>
-					<th><input type="checkbox" id="checkAll"/> Check All</th>
-					<input style="width: 70px;float: right;" type="button" class="form-control" id="next" value="Next">
-				</tr>
-			</thead>
-			<tbody>
-				
-					<?php
-						$html_content = "";
-						$index = 1;
-						foreach ($final_excel_data as $key => $excel_data_array) {
-							echo "<tr id=row".$index.">";
-							foreach ($excel_data_array as $key => $value) {
-								echo "<td>".$value."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</td>";
-							}
-							echo '<td ><input type="checkbox" value="checked" id="check'.$index.'"  /></td></tr>';
-							$index++;
-
+?>
+<form id="form" action="../controller/bulk_sms_controller.php" method="post">
+	<table class="table table-hover record_table">
+		<thead>
+			<tr>
+				<?php 
+					$heading_val = "";
+					foreach ($final_excel_data[0] as $key => $heading) {
+						echo "<th>".$heading."</th>";
+						if($heading_val==""){
+							$heading_val = $heading;
+						}else{
+							$heading_val = $heading_val.'|'.$heading;
 						}
-						echo $html_content;
-					?>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+					} 
+					unset($final_excel_data[0]);
+				?>
+				<th><input type="checkbox" id="checkAll" /> Check All</th>
+				<input style="width: 70px;float: right;" type="button" class="form-control" id="next" value="Next">
+
+				<input type="hidden" name="hidden_format_name" value="<?php echo $heading_val; ?>">
+			</tr>
+		</thead>
+		<tbody>
+
+				<?php
+					$td_values = "";
+					$checkbox_value = "";
+					foreach ($final_excel_data as $key => $excel_data_array) {
+						foreach ($excel_data_array as $key => $value) {
+							$td_values = $td_values."<td>".$value."</td>";
+							if($checkbox_value==""){
+								$checkbox_value = $value;
+							}else{
+								$checkbox_value = $checkbox_value.'|'.$value;
+							}
+						}
+						echo '<tr>'.$td_values.'<td ><input type="checkbox" name="raw_data[]" value="'.$checkbox_value.'"/></td></tr>';
+						$td_values = "";
+						$checkbox_value = "";
+					}
+				?>
+		</tbody>
+	</table>
+</form>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.record_table tr').click(function(event) {
@@ -50,24 +61,8 @@
 			$('body').on('change', '#checkAll', function(){
 				$("input:checkbox").prop('checked', $(this).prop("checked"));
 			});
-			contents = [];
 			$('body').on('click', "#next", function(){
-				j = 1;
-				for (i = 1; i <<?php echo $index; ?>; i++) {
-					if ($('#check'+i).is(":checked")) {
-						contents[j] = (document.getElementById('row'+j+'').innerText).split('|');
-						j++;	
-					}
-				}
-				// window.location.href = "../controller/bulk_sms_controller.php?content="+contents[]+"";
-			$.ajax({
-				type: "POST",
-				url: "../controller/bulk_sms_controller.php",
-				data: {content : contents},
-				success: function(data) {  
-					console.log(data);          
-				}
-			});
+				$('#form').submit();
 			});
 		});
 	</script>
