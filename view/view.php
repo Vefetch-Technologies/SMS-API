@@ -27,7 +27,7 @@
 						foreach ($final_excel_data as $key => $excel_data_array) {
 							echo "<tr id=row".$index.">";
 							foreach ($excel_data_array as $key => $value) {
-								echo "<td >".$value."</td>";
+								echo "<td>".$value."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</td>";
 							}
 							echo '<td ><input type="checkbox" value="checked" id="check'.$index.'"  /></td></tr>';
 							$index++;
@@ -52,12 +52,10 @@
 			});
 			contents = [];
 			$('body').on('click', "#next", function(){
-				check_box_value = document.getElementById('check1').value;
-				alert()
 				j = 1;
 				for (i = 1; i <<?php echo $index; ?>; i++) {
-					if ($('#check1').is(":checked")) {
-						contents[j] = document.getElementById('row'+j+'').innerText;
+					if ($('#check'+i).is(":checked")) {
+						contents[j] = (document.getElementById('row'+j+'').innerText).split('|');
 						j++;	
 					}
 				}
