@@ -6,6 +6,7 @@
 		$final_excel_data = get_excel_data($file_path);
 	}
 ?>
+<form id="form" action="../controller/bulk_sms_controller.php" method="post">
 	<table class="table table-hover record_table">
 		<thead>
 			<tr>
@@ -22,6 +23,8 @@
 					unset($final_excel_data[0]);
 				?>
 				<th><input type="checkbox" id="checkAll" /> Check All</th>
+				<input style="width: 70px;float: right;" type="button" class="form-control" id="next" value="Next">
+
 				<input type="hidden" name="hidden_format_name" value="<?php echo $heading_val; ?>">
 			</tr>
 		</thead>
@@ -39,13 +42,14 @@
 								$checkbox_value = $checkbox_value.'|'.$value;
 							}
 						}
-						echo '<tr>'.$td_values.'<td ><input type="checkbox" value="'.$checkbox_value.'"/></td></tr>';
+						echo '<tr>'.$td_values.'<td ><input type="checkbox" name="raw_data[]" value="'.$checkbox_value.'"/></td></tr>';
 						$td_values = "";
 						$checkbox_value = "";
 					}
 				?>
 		</tbody>
 	</table>
+</form>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.record_table tr').click(function(event) {
@@ -56,6 +60,9 @@
 			
 			$('body').on('change', '#checkAll', function(){
 				$("input:checkbox").prop('checked', $(this).prop("checked"));
+			});
+			$('body').on('click', "#next", function(){
+				$('#form').submit();
 			});
 		});
 	</script>
