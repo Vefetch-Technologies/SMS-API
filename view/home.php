@@ -1,7 +1,7 @@
 
-<!-- <?php //include_once 'header.php'; ?>
+<?php include_once 'header.php'; ?>
 
-	<div>
+<!-- 	<div>
 		<h1>Today's SMS Count</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
@@ -50,5 +50,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
-<?php //include_once 'footer.php'; ?> -->
+	</div> -->
+<?php include_once 'footer.php'; ?>

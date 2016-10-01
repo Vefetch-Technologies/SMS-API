@@ -9,7 +9,6 @@
 	$raw_data = get_raw_data($email, $password, $con);
 	if($raw_data!="empty"){
 		create_session($raw_data);
-		print_r($_SESSION);
 		header('Location: ../view/single_sms.php');
 	}else{
 		echo "no data";

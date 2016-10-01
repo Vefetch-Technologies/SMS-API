@@ -1,2 +1,3 @@
 <?php 
-	echo "im called";
+	print_r($_POST);
+	echo "test";

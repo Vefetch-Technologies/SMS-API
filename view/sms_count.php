@@ -40,8 +40,9 @@
 		}
         console.log(sender_id+ "," + mobile_numbers+ "," + message+ "," + unicode);
 		$.ajax({
-			// type: "POST",
+			type: "POST",
 			url: "../controller/send_sms.php",
+			data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode},
 			success: function(data) {  
 				console.log(data);          
 			}
