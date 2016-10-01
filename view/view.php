@@ -10,28 +10,40 @@
 		<thead>
 			<tr>
 				<?php 
+					$heading_val = "";
 					foreach ($final_excel_data[0] as $key => $heading) {
 						echo "<th>".$heading."</th>";
+						if($heading_val==""){
+							$heading_val = $heading;
+						}else{
+							$heading_val = $heading_val.'|'.$heading;
+						}
 					} 
 					unset($final_excel_data[0]);
 				?>
-				<th><input type="checkbox" id="checkAll"/> Check All</th>
+				<th><input type="checkbox" id="checkAll" /> Check All</th>
+				<input type="hidden" name="hidden_format_name" value="<?php echo $heading_val; ?>">
 			</tr>
 		</thead>
 		<tbody>
-			
+
 				<?php
-					$html_content = "";
+					$td_values = "";
+					$checkbox_value = "";
 					foreach ($final_excel_data as $key => $excel_data_array) {
-						echo '<tr>';
 						foreach ($excel_data_array as $key => $value) {
-							echo "<td>".$value."</td>";
+							$td_values = $td_values."<td>".$value."</td>";
+							if($checkbox_value==""){
+								$checkbox_value = $value;
+							}else{
+								$checkbox_value = $checkbox_value.'|'.$value;
+							}
 						}
-						echo '<td ><input type="checkbox" /></td></tr>';
+						echo '<tr>'.$td_values.'<td ><input type="checkbox" value="'.$checkbox_value.'"/></td></tr>';
+						$td_values = "";
+						$checkbox_value = "";
 					}
-					echo $html_content;
 				?>
-			</tr>
 		</tbody>
 	</table>
 	<script type="text/javascript">
