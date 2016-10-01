@@ -32,7 +32,7 @@ $date = date("Y-m-d", time());
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <span class="count-green"><button-red >count</button></span>
+      <span class="count-green"><button-orange >count</button></span>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
