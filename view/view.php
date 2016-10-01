@@ -6,7 +6,10 @@
 		$final_excel_data = get_excel_data($file_path);
 	}
 ?>
-<form id="form" action="../controller/bulk_sms_controller.php" method="post">
+<div id="response">
+	
+</div>
+<form id="form" action="validate_bulk_sms.php" method="post">
 	<table class="table table-hover record_table">
 		<thead>
 			<tr>
@@ -42,7 +45,7 @@
 								$checkbox_value = $checkbox_value.'|'.$value;
 							}
 						}
-						echo '<tr>'.$td_values.'<td ><input type="checkbox" name="raw_data[]" value="'.$checkbox_value.'"/></td></tr>';
+						echo '<tr>'.$td_values.'<td ><input type="checkbox" name="user_data[]" value="'.$checkbox_value.'"/></td></tr>';
 						$td_values = "";
 						$checkbox_value = "";
 					}

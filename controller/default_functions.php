@@ -1,8 +1,5 @@
 <?php 
 	session_start();
-	ini_set('max_execution_time', 300);
-	ini_set('post_max_size', '500M');
-	ini_set('upload_max_filesize', '500M');
 	
 	function landing_page_session_check(){
 		if(empty($_SESSION["user_details"])){
