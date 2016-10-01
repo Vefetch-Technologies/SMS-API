@@ -38,7 +38,6 @@
 		} else {
 			var unicode = "not_checked";
 		}
-        console.log(sender_id+ "," + mobile_numbers+ "," + message+ "," + unicode);
 		$.ajax({
 			type: "POST",
 			url: "../controller/send_sms.php",

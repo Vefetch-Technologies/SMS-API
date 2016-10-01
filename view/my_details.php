@@ -4,6 +4,10 @@
 	
  ?>
 <div>
+	<h1 id="response"></h1>
+</div>
+
+<div>
 	<h1><?php echo $user_details['user_name']; ?>, Update your details here.</h1>
 	<hr style="border-top: 1px solid #191616">
 </div>
@@ -15,14 +19,6 @@
 				</td>
 				<td>
 					<input type="text" name="customer_name" id="user_name" class="form-control" placeholder="Name" value=<?php echo $user_details['user_name']; ?> required autofocus><br/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<p>Sender Id :- </p>
-				</td>
-				<td>
-					<input type="text" name="sender_id" id="sender_id" class="form-control" placeholder="Name" value=<?php echo $user_details['sender_id']; ?> required autofocus><br/>
 				</td>
 			</tr>
 			<tr>

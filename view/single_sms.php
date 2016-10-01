@@ -3,7 +3,6 @@
  	include_once 'sms_count.php'; 
  	include_once '../controller/default_functions.php';
  ?>
-  <div class="alert alert-success message-sent" id="response"></div>
 <div>
 	<h1>Single SMS</h1>
 	<hr style="border-top: 1px solid #191616">
