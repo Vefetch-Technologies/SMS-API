@@ -5,35 +5,40 @@
 		$file_path = "../files/".$user_details['email_id']."/".$_GET['file_name'];
 		$final_excel_data = get_excel_data($file_path);
 	}
-?>
-	<table class="table table-hover record_table">
-		<thead>
-			<tr>
-				<?php 
-					foreach ($final_excel_data[0] as $key => $heading) {
-						echo "<th>".$heading."</th>";
-					} 
-					unset($final_excel_data[0]);
-				?>
-				<th><input type="checkbox" id="checkAll"/> Check All</th>
-			</tr>
-		</thead>
-		<tbody>
-			
-				<?php
-					$html_content = "";
-					foreach ($final_excel_data as $key => $excel_data_array) {
-						echo '<tr>';
-						foreach ($excel_data_array as $key => $value) {
-							echo "<td>".$value."</td>";
+?>	<div id="">
+		<table class="table table-hover record_table">
+			<thead>
+				<tr>
+					<?php 
+						foreach ($final_excel_data[0] as $key => $heading) {
+							echo "<th>".$heading."</th>";
+						} 
+						unset($final_excel_data[0]);
+					?>
+					<th><input type="checkbox" id="checkAll"/> Check All</th>
+					<input style="width: 70px;float: right;" type="button" class="form-control" id="next" value="Next">
+				</tr>
+			</thead>
+			<tbody>
+				
+					<?php
+						$html_content = "";
+						$index = 1;
+						foreach ($final_excel_data as $key => $excel_data_array) {
+							echo "<tr id=row".$index.">";
+							foreach ($excel_data_array as $key => $value) {
+								echo "<td >".$value."</td>";
+							}
+							echo '<td ><input type="checkbox" value="checked" id="check'.$index.'"  /></td></tr>';
+							$index++;
+
 						}
-						echo '<td ><input type="checkbox" /></td></tr>';
-					}
-					echo $html_content;
-				?>
-			</tr>
-		</tbody>
-	</table>
+						echo $html_content;
+					?>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.record_table tr').click(function(event) {
@@ -44,6 +49,27 @@
 			
 			$('body').on('change', '#checkAll', function(){
 				$("input:checkbox").prop('checked', $(this).prop("checked"));
+			});
+			contents = [];
+			$('body').on('click', "#next", function(){
+				check_box_value = document.getElementById('check1').value;
+				alert()
+				j = 1;
+				for (i = 1; i <<?php echo $index; ?>; i++) {
+					if ($('#check1').is(":checked")) {
+						contents[j] = document.getElementById('row'+j+'').innerText;
+						j++;	
+					}
+				}
+				// window.location.href = "../controller/bulk_sms_controller.php?content="+contents[]+"";
+			$.ajax({
+				type: "POST",
+				url: "../controller/bulk_sms_controller.php",
+				data: {content : contents},
+				success: function(data) {  
+					console.log(data);          
+				}
+			});
 			});
 		});
 	</script>
