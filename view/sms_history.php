@@ -1,6 +1,6 @@
 <?php include_once 'header.php'; ?>
 <div class="home_header">
-	<h1>Welcome Vani, to SMS History</h1>
+	<h1>Welcome <?php echo $user_details['user_name']; ?>, to SMS History</h1>
 	<hr style="border-top: 1px solid #191616">
 </div>
 <div class="home_content">
