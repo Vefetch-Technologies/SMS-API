@@ -5,7 +5,18 @@
 	$conn = db_connect();
 	$sql = "SELECT * FROM `files` WHERE `user_id`=".$user_details['id'];
 	$result = execute_query($sql,$conn);
+	if (isset($_GET['status'])) {
+		if ($_GET['status'] == "queued") {
+			echo "<div class='alert alert-success'><strong>Success!</strong> Indicates a successful or positive action.</div";
+		}else{
+			if ($_GET['status'] == "error") {
+				echo "<div class='alert alert-danger'><strong>Success!</strong> set last fiels as integer</div";
+			}
+
+		}
+	}
 ?>
+<div id="response"></div>
 <div>
 	<h1>Bulk SMS</h1>
 	<hr style="border-top: 1px solid #191616">

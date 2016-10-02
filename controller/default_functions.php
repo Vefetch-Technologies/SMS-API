@@ -1,6 +1,6 @@
 <?php 
-session_start();
-
+	session_start();
+	
 	function landing_page_session_check(){
 		if(empty($_SESSION["user_details"])){
 			header('location:login.php');
