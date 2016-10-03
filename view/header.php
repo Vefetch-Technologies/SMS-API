@@ -33,7 +33,7 @@ $date = date("Y-m-d", time());
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <span><?php echo get_count_data($user_details['id']); ?></span>
+      <span><?php echo get_count_data($user_details['id'], $user_details['mobile_number']); ?></span>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
