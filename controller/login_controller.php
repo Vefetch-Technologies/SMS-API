@@ -1,6 +1,6 @@
 <?php 
 
-	include_once 'default_functions.php';
+	include_once '../admin/controller/common_functions.php';
 	include_once '../admin/model/db.php';
 	
 	$con = db_connect();

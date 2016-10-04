@@ -1,13 +1,15 @@
 <?php 
 	include_once 'header.php'; 
  	include_once 'sms_count.php'; 
- 	include_once '../controller/default_functions.php';
+	include_once '../admin/controller/common_functions.php';
+ 	
  ?>
 <div>
 	<h1>Single SMS</h1>
 	<hr style="border-top: 1px solid #191616">
 </div>
 	<form action="#">
+		<input type="hidden" id="user_id" value="<?php echo $user_details['id'];?>">
 		<table class="table" style="width:44%;">
 			<tr>
 				<td>

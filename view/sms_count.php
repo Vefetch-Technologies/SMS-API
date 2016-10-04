@@ -33,6 +33,7 @@
          var sender_id = $("#sender_id").val();
          var mobile_numbers = $("#mobile_numbers").val();
          var message = $("#message").val();
+         var user_id = $("#user_id").val();
         if(document.getElementById('unicode').checked) {
 			var unicode = "checked";
 		} else {
@@ -41,7 +42,7 @@
 		$.ajax({
 			type: "POST",
 			url: "../controller/send_sms.php",
-			data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode},
+			data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id},
 			success: function(data) {  
 				console.log(data);          
 			}
