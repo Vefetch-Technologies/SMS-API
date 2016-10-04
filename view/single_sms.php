@@ -1,7 +1,6 @@
 <?php 
 	include_once 'header.php'; 
  	include_once 'sms_count.php'; 
- 	include_once '../controller/default_functions.php';
  ?>
 <div>
 	<h1>Single SMS</h1>

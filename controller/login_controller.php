@@ -1,6 +1,6 @@
 <?php 
 
-	include_once 'default_functions.php';
+	include_once '../admin/controller/common_functions.php';
 	include_once '../admin/model/db.php';
 	
 	$con = db_connect();
@@ -8,11 +8,12 @@
 	$password = sanitize($_POST['password'], $con);
 	$raw_data = get_raw_data($email, $password, $con);
 	if($raw_data!="empty"){
+		print_r($raw_data);
 		create_session($raw_data);
 		header('Location: ../view/single_sms.php');
 	}else{
 		echo "no data";
-		header('Location: ../view/login.php?type=login_error');
+		// header('Location: ../view/login.php?type=login_error');
 	}
 
 	function get_raw_data($email, $password, $con){
@@ -21,6 +22,7 @@
 	}
 
 	function create_session($data){
+		session_start();
 		$user_details = $data['0'];
 		$_SESSION["user_details"] = $user_details;
 		if(isset($_SESSION['user_details'])){
