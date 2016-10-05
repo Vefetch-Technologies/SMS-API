@@ -30,7 +30,7 @@
 		<h1>Enter Your Message</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
-	<form  >
+	<form>
 		<table class="table">
 			<tr>
 				<td>
@@ -57,6 +57,14 @@
 				<td>
 				<textarea class="form-control" rows="5" id="bulk_message" name="message" onkeyup="countChar(this)" required></textarea>
 				<div id="bulk_charNum">Number of SMS will Send = 1 (0)</div>
+				<div>Use
+				<?php
+
+				foreach ($_SESSION['headers'] as $value) {
+				 	echo "<b>#".$value."#</b> , ";
+				 } 
+				 ?> For Dynamic value representation.
+				</div>
 				</td>
 			</tr>
 			<tr>
