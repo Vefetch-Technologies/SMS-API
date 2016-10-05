@@ -1,10 +1,12 @@
 <?php 
 	include_once 'header.php';
 	include_once '../controller/view_controller.php';
+	include_once 'bulk_sms_count.php';
 	if(!empty($_GET['file_name'])){
 		$file_path = "../files/".$user_details['email_id']."/".$_GET['file_name'];
 		$final_excel_data = get_excel_data($file_path);
 	}
+
 ?>
 <div id="response">
 	
@@ -26,7 +28,7 @@
 					unset($final_excel_data[0]);
 				?>
 				<th><input type="checkbox" id="checkAll" /> Check All</th>
-				<input style="width: 70px;float: right;" type="button" class="form-control" id="next" value="Next">
+				<input style="width: 70px;float: right;" type="button" id="next" class="form-control" id="next" value="Next">
 
 				<input type="hidden" name="hidden_format_name" value="<?php echo $heading_val; ?>">
 			</tr>
@@ -46,7 +48,7 @@
 							}
 						}
 						echo '<tr>'.$td_values.'<td ><input type="checkbox" name="user_data[]" value="'.$checkbox_value.'"/></td></tr>';
-						$td_values = "";
+						$td_values = "</form>";
 						$checkbox_value = "";
 					}
 				?>

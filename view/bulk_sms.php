@@ -36,7 +36,7 @@
 	</form>
 	<hr style="border-top: 1px solid #191616">
 	<?php 
-	if(!empty($result)){
+	if(empty($result)){
 		echo "no data found";
 	}else{
 		while($row = mysqli_fetch_array($result)) {

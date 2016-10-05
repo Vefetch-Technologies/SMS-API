@@ -5,30 +5,15 @@
 	print_r($_POST);
 	$message = $_POST['message'];
 	$headers = $_SESSION['headers'];
-	print_r($headers);
-	$count = count($_SESSION['bulk_data']);
-	echo "$count";
-
-	$header_count = count($headers);
-	echo $header_count;
-	unset($headers[$header_count-1]);
-	print_r($headers);
-	 for ($i=0; $i <3 ; $i++) { 
-		print_r($headers[$i]);
+	foreach ($headers as $value) {
+		$modified_headers[] = "#".$value."#";
 	}
-	
-
-
-
-
-
-
-
-
-// 	str_replace(
-// 	$headers,
-// 	array("replace", "items"),
-// 	$message
-// );
-
+	print_r($modified_headers);
+	$bulk_data = $_SESSION['bulk_data'];
+	$i = 0;
+	foreach ($bulk_data as  $value) {
+		$test_msg[] = str_replace($modified_headers,$bulk_data[$i],$message);
+		$i++;
+	}
+	print_r($test_msg);
  ?>

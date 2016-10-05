@@ -1,6 +1,10 @@
 <?php 
 	include_once 'header.php';
 	include_once 'bulk_sms_count.php';
+	if (!isset($_POST['user_data'])) {
+		echo "<div class='alert alert-danger'><strong>Please select a row for message ! </strong>no data</div>";
+	}
+	else{	
 	$headers = explode('|',$_POST['hidden_format_name']);
 	$_SESSION['headers'] = $headers;
 	$raw_data = $_POST['user_data'];
@@ -26,8 +30,26 @@
 		<h1>Enter Your Message</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
-	<form action="send_bulk_sms.php" method="post" >
+	<form  >
 		<table class="table">
+			<tr>
+				<td>
+					<p>Sender ID :- </p>
+				</td>
+				<td>
+					<select class="form-control" id="bulk_sender_id">
+						<?php
+							if(is__array($user_details['sender_id'])){
+								foreach ($user_details['sender_id'] as $key => $sender_id) {
+									echo $sender_id;
+								} 
+							}else{
+								echo "<option>".$user_details['sender_id']."</option>";
+							}
+						 ?>
+					</select>
+				</td>
+			</tr>
 			<tr>
 				<td>
 				<p>Enter Message :- </p>
@@ -53,4 +75,4 @@
 			</tr>
 		</table>
 	</form>
-<?php include_once '../view/footer.php'; ?>
+<?php }  include_once '../view/footer.php'; ?>
