@@ -7,7 +7,18 @@
 	$conn = db_connect();
 	$sql = "SELECT * FROM `files` WHERE `user_id`=".$user_details['id'];
 	$result = execute_query($sql,$conn);
+	if (isset($_GET['status'])) {
+		if ($_GET['status'] == "queued") {
+			echo "<div class='alert alert-success'><strong>Success!</strong> Indicates a successful or positive action.</div";
+		}else{
+			if ($_GET['status'] == "error") {
+				echo "<div class='alert alert-danger'><strong>Success!</strong> set last fiels as integer</div";
+			}
+
+		}
+	}
 ?>
+<div id="response"></div>
 <div>
 	<h1>Bulk SMS</h1>
 	<hr style="border-top: 1px solid #191616">
@@ -44,7 +55,7 @@
 				foreach ($selected_rows as $value) {
 					echo "<tr>";
 						echo "<td>";
-						echo "<a href='view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
+						echo "<a href='view.php?file_name=".$user_details['sender_id']."'>".$value['file_name']."</a>";
 						echo "</td>";
 						echo "<td>";
 						echo "<a href='delete.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a>";
