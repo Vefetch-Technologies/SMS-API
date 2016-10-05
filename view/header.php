@@ -1,11 +1,10 @@
 <?php 
-include_once '../controller/default_functions.php';
+include_once '../admin/controller/common_functions.php';
+include_once '../controller/header_functions.php';
 landing_page_session_check();
 $user_details = $_SESSION['user_details'];
-print_r($user_details);
 $date = date("Y-m-d", time());
 ?>
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -32,7 +31,7 @@ $date = date("Y-m-d", time());
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <span class="count-green"><button-orange >count</button></span>
+      <span><?php echo get_count_data($user_details['id']); ?></span>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
@@ -65,11 +64,11 @@ $date = date("Y-m-d", time());
           <!-- <li><a href="home.php"><i class="fa fa-circle-o text-red "></i> <span>Dashboard</span></a></li> -->
           <li><a href="single_sms.php"><i class="fa fa-circle-o text-yellow"></i> <span>Single SMS</span></a></li>
           <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Bulk SMS</span></a></li>
-          <li><a href="mark_upload.php"><i class="fa fa-circle-o text-red"></i> <span>Mark Upload</span></a></li>
-          <!-- <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li> -->
+          <!-- <li><a href="mark_upload.php"><i class="fa fa-circle-o text-red"></i> <span>Mark Upload</span></a></li> -->
+          <li><a href="dlr_report.php"><i class="fa fa-circle-o text-red"></i> <span>Todays Report</span></a></li>
+          <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li>
+          <li><a href="rest_api.php"><i class="fa fa-circle-o text-red"></i> <span>REST API</span></a></li>
           <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li>
-          
-          
         </ul>
       </section>
   </aside>

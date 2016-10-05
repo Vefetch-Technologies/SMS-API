@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2016 at 07:25 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Sep 24, 2016 at 02:29 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,27 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `sms_api`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `files`
---
-
-CREATE TABLE `files` (
-  `id` int(255) NOT NULL,
-  `file_name` varchar(255) NOT NULL,
-  `user_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `files`
---
-
-INSERT INTO `files` (`id`, `file_name`, `user_id`) VALUES
-(2, 'student_list_demo.xlsx', 2),
-(3, 'student_list_demo.xlsx', 3),
-(4, 'SmsHistory.12-Sep-2016.csv', 3);
 
 -- --------------------------------------------------------
 
@@ -91,18 +70,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`) VALUES
-(2, 'Arun', 'afm447', 'afm447@gmail.com', 'Rasipuram', 'Akv', '2016-09-25 08:57:26', 0, 'true', 9715804476),
-(3, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'Tiruchengode', 'SUDHAK', '2016-09-27 05:54:37', 0, 'true', 9842972047);
+(1, 'vani vidyalaya', 'szdfjasd', 'asudahakr@live.in', 'vattur mettupalayam', 'vvmhss', '2016-09-16 08:02:13', 10000, 'true', 9842972047),
+(5, 'rubak', 'ezrubak', 'rubaktechie@gmail.com', 'Sankagiri', 'erubak', '2016-09-16 08:29:17', 10000, 'true', 8940698743),
+(6, 'rubaktechie', 'ezrubak', 'ezrubak@gmail.com', 'Sankagiri', 'EZHRUB', '2016-09-16 08:30:37', 10000, 'true', 8940698743),
+(7, 'Gautham', 'gautham', 'gauthamrg@gmail.com', 'Sankagiri', 'gautam', '2016-09-16 08:50:33', 10000, 'true', 8695806252),
+(8, 'Gautham', 'gauthma', 'gauthamrgramaingsam@gmail.com', 'Sankagiri', 'gautam', '2016-09-16 08:52:15', 10000, 'true', 8695806252);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `files`
---
-ALTER TABLE `files`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sms_count`
@@ -124,11 +100,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `files`
---
-ALTER TABLE `files`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
 -- AUTO_INCREMENT for table `sms_count`
 --
 ALTER TABLE `sms_count`
@@ -137,7 +108,7 @@ ALTER TABLE `sms_count`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,5 +1,5 @@
 <?php 
-  include_once '../controller/default_functions.php';
+  include_once '../admin/controller/common_functions.php';
   login_page_session_check();
  ?>
 <!DOCTYPE html>
