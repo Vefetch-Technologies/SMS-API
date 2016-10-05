@@ -20,5 +20,6 @@ $('body').on('click', "#submit", function(){
 			}      
 		}
 	});
+
 });
 </script>

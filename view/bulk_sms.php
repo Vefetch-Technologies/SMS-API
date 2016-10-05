@@ -1,7 +1,9 @@
 <?php 
 	include_once 'header.php'; 
 	include_once '../admin/model/db.php';
-	include_once '../controller/default_functions.php';
+  include_once '../admin/controller/common_functions.php';
+	
+
 	$conn = db_connect();
 	$sql = "SELECT * FROM `files` WHERE `user_id`=".$user_details['id'];
 	$result = execute_query($sql,$conn);

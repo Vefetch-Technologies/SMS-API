@@ -1,6 +1,7 @@
 <?php
-	include_once 'default_functions.php';
 	include_once '../admin/model/db.php';
+	include_once '../admin/controller/common_functions.php';
+	
 	$user_details = $_SESSION['user_details'];
 	$user_id = $user_details['id'];
 	$target_dir = "../files/".$user_details['email_id']."/";
