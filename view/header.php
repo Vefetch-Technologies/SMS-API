@@ -65,10 +65,10 @@ $date = date("Y-m-d", time());
           <li><a href="single_sms.php"><i class="fa fa-circle-o text-yellow"></i> <span>Single SMS</span></a></li>
           <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Bulk SMS</span></a></li>
           <!-- <li><a href="mark_upload.php"><i class="fa fa-circle-o text-red"></i> <span>Mark Upload</span></a></li> -->
+          <li><a href="dlr_report.php"><i class="fa fa-circle-o text-red"></i> <span>Todays Report</span></a></li>
           <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li>
-          <li><a href="dlr_report.php"><i class="fa fa-circle-o text-red"></i> <span>Delivary Report</span></a></li>
-          <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li>
           <li><a href="rest_api.php"><i class="fa fa-circle-o text-red"></i> <span>REST API</span></a></li>
+          <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li>
         </ul>
       </section>
   </aside>
