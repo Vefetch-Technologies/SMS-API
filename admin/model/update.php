@@ -1,5 +1,5 @@
 <?php 
- 
+	
 	function update($column_names, $table_name, $conditions, $con){
 		$sql = get_update_query($column_names, $table_name, $conditions);
 		if($result = execute_query($sql, $con)){

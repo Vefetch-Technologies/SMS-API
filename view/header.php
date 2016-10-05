@@ -3,10 +3,8 @@ include_once '../admin/controller/common_functions.php';
 include_once '../controller/header_functions.php';
 landing_page_session_check();
 $user_details = $_SESSION['user_details'];
-print_r($user_details);
 $date = date("Y-m-d", time());
 ?>
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">

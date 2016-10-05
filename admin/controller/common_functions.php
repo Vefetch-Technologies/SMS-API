@@ -1,5 +1,5 @@
 <?php 
-
+	session_start();
 	function send_message($sender_id, $phone_number, $message_content){
 		$conn = sms_db_connect();
 		$sql = "INSERT INTO `MessageOut` (`MessageFrom`, `MessageTo` , `MessageText`) VALUES ('$sender_id', '$phone_number', '$message_content')";
@@ -23,7 +23,14 @@
 	function is__array($value){
 		return is_array($value);
 	}
-		session_start();
+
+
+	
+	function emptty($value){
+		return empty($value);
+	}
+
+		
 
 	function landing_page_session_check(){
 		if(empty($_SESSION["user_details"])){
@@ -39,8 +46,4 @@
 
 	function log_out(){
 		session_destroy();   
-	}
-
-	function emptty($value){
-		return empty($value);
 	}
