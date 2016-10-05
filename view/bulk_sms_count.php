@@ -16,6 +16,20 @@
 			<?php get_check_code("normal"); ?>
 		}
 	});
+	$('body').on('click', "#send_bulk_sms", function(){
+		bulk_sender_id = document.getElementById('bulk_sender_id').value;
+		bulk_message = document.getElementById('bulk_message').value;
+		bulk_unicode = document.getElementById('bulk_unicode').value;
+			$.ajax({
+			type: "POST",
+			url: ".php",
+			data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode},
+			success: function(data) {  
+				console.log(data);          
+			}
+		});
+
+	});
 	function isNumber(evt) {
 		var theEvent = evt || window.event;
 		var key = theEvent.keyCode || theEvent.which;
