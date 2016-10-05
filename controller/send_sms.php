@@ -4,6 +4,7 @@
 	include_once '../admin/model/db.php';
 	process_all_values($_POST);
 	function process_all_values($raw_values){
+		print_r($raw_values);
 		$total_message_length=strlen($raw_values['message']);
 		print_r($raw_values);
 		$message_count=get_message_count($total_message_length,$raw_values['unicode']);

@@ -1,6 +1,5 @@
 <?php 
 include_once '../admin/controller/common_functions.php';
-include_once '../controller/default_functions.php';
 include_once '../controller/header_functions.php';
 landing_page_session_check();
 $user_details = $_SESSION['user_details'];
