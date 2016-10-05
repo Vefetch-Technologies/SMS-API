@@ -1,5 +1,7 @@
 <?php
-	session_start();
+	include_once '../admin/controller/common_functions.php';
+	include_once '../admin/model/db.php';
+	include_once '../controller/process_message.php';
 	// echo "<pre>";
 	// print_r($_SESSION['bulk_data']);
 	// print_r($_POST);
@@ -12,10 +14,12 @@
 	$bulk_data = $_SESSION['bulk_data'];
 	$i = 0;
 	foreach ($bulk_data as  $value) {
-		$test_msg = str_replace($modified_headers,$bulk_data[$i],$message);
-		
-		echo $test_msg;
-		echo $bulk_data[$i]['number'];
+		$raw_values['message'] = str_replace($modified_headers,$bulk_data[$i],$message);
+		$raw_values['mobile_numbers'] = $bulk_data[$i]['number'];
+		$raw_values['unicode'] = $_POST['bulk_unicode'];
+		$raw_values['user_id'] = $_SESSION['user_details']['id'];
+		$raw_values['sender_id'] = $_POST['bulk_sender_id'];
+		process_all_values($raw_values);
 		$i++;
 	}
 	// print_r($test_msg);
