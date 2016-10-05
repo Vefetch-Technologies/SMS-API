@@ -11,6 +11,8 @@
 		$parts = parse_url($url);
 		parse_str($parts['query'], $query);
 		echo $query['message'];
+		echo $query['phone_number'];
+		send_message($raw_data['sender_id'],$query['phone_number'],$query['message']);
 
 	}else{
 		echo "Username or password is not valid!";
