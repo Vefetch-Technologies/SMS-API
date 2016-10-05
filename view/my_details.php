@@ -1,10 +1,15 @@
 <?php 
 	include_once 'header.php';
 	include_once '../controller/my_details_controller.php';
+	
  ?>
  <div>
 	<h1 id="response"></h1>
 </div>
+<div>
+	<h1 id="response"></h1>
+</div>
+
 <div>
 	<h1><?php echo $user_details['user_name']; ?>, Update your details here.</h1>
 	<hr style="border-top: 1px solid #191616">
