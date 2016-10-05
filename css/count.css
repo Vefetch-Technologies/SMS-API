@@ -7,7 +7,7 @@ button-green {
     cursor: pointer;
     border-radius: 5px;
     margin-left:35%;
-    position:fixed;
+    position:absolute;
     display: block;
     }
 button-orange {
@@ -19,7 +19,7 @@ button-orange {
     cursor: pointer;
     border-radius: 5px;
     display: block;
-    position: fixed;
+    position: absolute;
     margin-left:35%;
 
 }
@@ -32,7 +32,7 @@ button-red {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    position: fixed;
+    position: absolute;
     display: block;
     margin-left:35%;
 
