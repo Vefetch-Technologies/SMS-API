@@ -31,7 +31,6 @@
 			"email_id" => $_POST['email_id'],
 			"id" => $_POST['id'],
 			"sender_id" => $sender_id
-
-		);
+			);
 		// print_r($_SESSION['user_details']);
 	}

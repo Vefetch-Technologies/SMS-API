@@ -63,5 +63,6 @@
 		</table>
 	</form>
 	<hr>
+	<div id="response"></div>
 
 <?php include_once 'footer.php'; ?>
