@@ -12,10 +12,9 @@
 				<button class="btn btn-info col-md-3 pull-right" id="test" name="test">Test</button>
 			<script type="text/javascript">
 				$('body').on('click', '#test', function(){
-					alert("haii....");
-				url = '<?php echo $url.$remaining_url;?>';
+					url = '<?php echo $url.$remaining_url;?>';
 				$.ajax(url, { 'success': function(data) {
-				console.log(data);
+					console.log(data);
 				}
 				});
 				})
