@@ -1,18 +1,20 @@
 <?php 
 	include_once '../admin/controller/common_functions.php';
 	include_once '../admin/model/db.php';
+	include_once 'process_message.php';
 	$con = db_connect();
 	$email = sanitize($_GET['email'], $con);
 	$password = sanitize($_GET['password'], $con);
 	$raw_data = get_raw_data($email, $password, $con);
 	if($raw_data!="empty"){
-		print_r($raw_data);
+		// print_r($raw_data);
 		$url=$_SERVER['REQUEST_URI'];
 		$parts = parse_url($url);
 		parse_str($parts['query'], $query);
-		echo $query['message'];
-		echo $query['phone_number'];
-		//send_message($raw_data['sender_id'],$query['phone_number'],$query['message']);
+		// echo $query['message'];
+		// echo $query['phone_number'];
+		$raw = array('sender_id' => $raw_data['sender_id'] ,'mobile_numbers' => $query['phone_number'],'message' => $query['message'],'unicode' => $query['unicode'] ,'sms_count' => $raw_data['sms_count'],'user_id' => $raw_data['id'] );
+		process_all_values($raw);
 	}else{
 		echo "Username or password is not valid!";
 	}
