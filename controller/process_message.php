@@ -1,11 +1,11 @@
 <?php 
 	function process_all_values($raw_values){
-		// print_r($raw_values);
+		//print_r($raw_values);
 		$total_message_length=strlen($raw_values['message']);
-		// print_r($raw_values);
+		//print_r($raw_values);
 		$message_count=get_message_count($total_message_length,$raw_values['unicode']);
 		if($message_count!="empty"){
-			// echo "processing";
+			//echo "processing";
 			$total_phone_numbers=explode(",", $raw_values['mobile_numbers']);
 			$total_message_count=count_total_messages($total_phone_numbers,$message_count);
 			if(empty($total_phone_numbers)){
