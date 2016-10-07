@@ -44,7 +44,13 @@
 			url: "../controller/send_sms.php",
 			data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id},
 			success: function(data) {  
-				console.log(data);          
+				 console.log(data);
+				if (data== "SMS Sent") {
+                   document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
+    	           } else{
+                   document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>"+data+"!</strong></div>"; 
+               }   	
+    	
 			}
 		});
 

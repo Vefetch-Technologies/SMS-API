@@ -59,9 +59,11 @@
 				<td>
 					<button type="submit" class="btn btn-success" id="send_single_sms" style="width: 208px;">Send SMS</button>
 				</td>
+
 			</tr>
+			
 		</table>
 	</form>
 	<hr>
-
+<div id="response"></div>
 <?php include_once 'footer.php'; ?>
