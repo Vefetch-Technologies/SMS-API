@@ -56,9 +56,9 @@
 		}
 	}
 	function count_total_messages(&$phone_numbers,$message_count){
-		//print_r($phone_numbers);
+		// print_r($phone_numbers);
 		$phone_numbers = unset_fake_numbers($phone_numbers);
-		//print_r($phone_numbers);
+		// print_r($phone_numbers);
 		$count_phone_number=count($phone_numbers);
 		$total_sms=$count_phone_number*$message_count;
 		return $total_sms;
@@ -87,11 +87,11 @@
 	}
 	function processing_sms($total_message_count,$user_sms_count,$raw_values, $phone_numbers){
 		if($total_message_count<=$user_sms_count){
-			//echo "sms is ready to send";
+			// echo "sms is ready to send";
 			$id = $raw_values['user_id'];
 
 			update_user_sms_count($user_sms_count, $total_message_count, $id);
-			//print_r($phone_numbers);
+			// print_r($phone_numbers);
 			foreach ($phone_numbers as $key => $number) {
 				send_message($raw_values['sender_id'], $number, $raw_values['message']);
 			}
