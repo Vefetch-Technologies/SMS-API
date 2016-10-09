@@ -12,9 +12,12 @@
 			echo "<div class='alert alert-success'><strong>Success!</strong> Indicates a successful or positive action.</div";
 		}else{
 			if ($_GET['status'] == "error") {
-				echo "<div class='alert alert-danger'><strong>Success!</strong> set last fiels as integer</div";
+				echo "<div class='alert alert-danger'><strong>Sorry!</strong> set last fiels as integer</div";
+			}else{
+			if ($_GET['status'] == "file_exists") {
+				echo "<div class='alert alert-danger'><strong>Sorry!</strong> File already exists</div";
 			}
-
+			}
 		}
 	}
 ?>
@@ -38,12 +41,9 @@
 	</form>
 	<hr style="border-top: 1px solid #191616">
 	<?php 
-	if(empty($result)){
+	if($result == "empty"){
 		echo "no data found";
 	}else{
-		// while($row = mysqli_fetch_array($result)) {
-		// 	$selected_rows[] = $row;
-		// }
 		foreach ($result as $value) {
 			$file_name[] = $value['file_name'];
 		}

@@ -17,6 +17,7 @@
 			<tr>
 				<?php 
 					echo "<th>Number</th>";
+					unset($final_excel_data[0]);
 				?>
 				<th><input type="checkbox" id="checkAll" /> Check All</th>
 				<input style="width: 70px;float: right;" type="button" id="next" class="form-control" id="next" value="Next">
@@ -32,11 +33,7 @@
 					foreach ($final_excel_data as $key => $excel_data_array) {
 						foreach ($excel_data_array as $key => $value) {
 							$td_values = $td_values."<td>".$value."</td>";
-							if($checkbox_value==""){
 								$checkbox_value = $value;
-							}else{
-								$checkbox_value = $checkbox_value.'|'.$value;
-							}
 						}
 						echo '<tr>'.$td_values.'<td ><input type="checkbox" name="user_data[]" value="'.$checkbox_value.'"/></td></tr>';
 						$td_values = "</form>";

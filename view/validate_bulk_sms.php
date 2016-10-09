@@ -83,4 +83,5 @@
 			</tr>
 		</table>
 	</form>
+	<div id="response"></div>
 <?php }  include_once '../view/footer.php'; ?>

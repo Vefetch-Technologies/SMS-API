@@ -7,16 +7,16 @@
 
 ?>
 	
-				<input type="textbox" class="form-control" name="url" value="<?php echo $url.$remaining_url; ?>" >
+				<input type="textbox" class="form-control" id="url" name="url" value="<?php echo $url.$remaining_url; ?>" >
 				<br>
 				<button class="btn btn-info col-md-3 pull-right" id="test" name="test">Test</button>
 			<script type="text/javascript">
 				$('body').on('click', '#test', function(){
-					url = '<?php echo $url.$remaining_url;?>';
-				$.ajax(url, { 'success': function(data) {
-					console.log(data);
-				}
-				});
+					url = $('#url').val();
+					$.ajax(url, { 'success': function(data) {
+						// console.log(data);
+					}
+					});
 				})
 			</script>
 

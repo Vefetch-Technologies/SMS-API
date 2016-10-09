@@ -3,6 +3,7 @@
 	function insert($table_name, $column_names_and_values, $conn){
 		$table_name = sanitize($table_name, $conn);
 		$sql = get_insert_query($table_name, $column_names_and_values, $conn);
+		// print_r($sql);
 		return execute_query($sql, $conn);
 	}
 

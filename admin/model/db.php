@@ -1,7 +1,6 @@
 <?php 
 	
 	include_once 'curd_operations.php';
-
 	function db_connect(){
 		$connection = mysqli_connect("localhost", "root", "", "sms_api");
 		if (!$connection) {

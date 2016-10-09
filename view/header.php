@@ -4,6 +4,33 @@ include_once '../controller/header_functions.php';
 landing_page_session_check();
 $user_details = $_SESSION['user_details'];
 $date = date("Y-m-d", time());
+$colors =  array('yellow','aqua','red','green');
+$conn = db_connect();
+$condition = "`id` =".$user_details['id']."";
+$addons_paid = select('`addons`','`users`',$condition,$conn);
+$condition1 = "`id` IN (".$addons_paid[0]['addons'].")";
+$default_sidebar_values_paths = select('*','`addons`',$condition1,$conn);
+$url = end(explode('/',$_SERVER['REQUEST_URI']));
+$paid_addon_id =  explode(',',$addons_paid[0]['addons'] );
+$condition2 = "`path` ='".$url."'";
+$verify = select('`id`,`path_type`','`addons`', $condition2, $conn);
+// print_r($verify);
+$subscribed = 0;
+foreach ($paid_addon_id as $value) {
+  if($verify != "empty"){
+    if ($value == $verify[0]['id']) {
+          $subscribed = 1;
+    }
+  }
+}
+if($verify != "empty"){
+  if ($verify[0]['path_type'] == "primary") {
+    if($subscribed == 0){
+      header("Location:error.php");
+    }
+  }
+}
+
 ?>
 <html>
 <head>
@@ -16,8 +43,27 @@ $date = date("Y-m-d", time());
   <link rel="stylesheet" href="../css/AdminLTE.min.css">
   <link rel="stylesheet" href="../css/_all-skins.min.css">
   <link rel="stylesheet" type="text/css" href="../css/count.css">
+  <link rel="stylesheet" type="text/css" href="../css/add_on.css">
   <script src="http://code.jquery.com/jquery-1.5.js"></script>
   <script src="../js/jquery-2.2.3.min.js"></script>
+  <script type="text/javascript">
+    function request(id){
+      addon_name =  document.getElementById(id).value;
+      $.ajax({
+      type: "POST",
+      url: "send_request.php",
+      data: {addon_name : addon_name},
+      success: function(data) {  
+        // console.log(data);  
+        if (data == "Request sent") {
+          document.getElementById('request').innerHTML = "<div class='alert alert-success'><strong>Request sent !</strong> Will be processed soon.</div>"; 
+        } else{
+          document.getElementById('request').innerHTML = "<div class='alert alert-warning'><strong>"+data+"!</strong></div>"; 
+        }           
+      }
+    });
+    }
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -61,15 +107,18 @@ $date = date("Y-m-d", time());
   <aside class="main-sidebar">
       <section class="sidebar">
         <ul class="sidebar-menu">
-          <!-- <li><a href="home.php"><i class="fa fa-circle-o text-red "></i> <span>Dashboard</span></a></li> -->
-          <li><a href="single_sms.php"><i class="fa fa-circle-o text-yellow"></i> <span>Single SMS</span></a></li>
-          <li><a href="bulk_sms.php"><i class="fa fa-circle-o text-aqua"></i> <span>Variable Message</span></a></li>
-          <li><a href="text_upload.php"><i class="fa fa-circle-o text-yellow"></i> <span>Text File</span></a></li>
-          <li><a href="mark_upload.php"><i class="fa fa-circle-o text-yellow"></i> <span>Bulk SMS</span></a></li>
-          <li><a href="dlr_report.php"><i class="fa fa-circle-o text-red"></i> <span>Todays Report</span></a></li>
-          <li><a href="sms_history.php"><i class="fa fa-circle-o text-yellow"></i> <span>Sms History</span></a></li>
-          <li><a href="rest_api.php"><i class="fa fa-circle-o text-red"></i> <span>REST API</span></a></li>
-          <li><a href="my_details.php"><i class="fa fa-circle-o text-aqua"></i> <span>My Details</span></a></li>
+          <?php
+            $i = 0;
+            foreach ($default_sidebar_values_paths as $value) {
+              if ($i == 4) {
+                $i = 0;
+              }
+              if($value['addon_name'] != "error"){
+                echo '<li><a href="'.$value['path'].'"><i class="fa fa-circle-o text-'.$colors[$i].'"></i> <span>'.$value['addon_name'].'</span></a></li>';
+                $i++;
+              }
+             } 
+          ?>
         </ul>
       </section>
   </aside>
