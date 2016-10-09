@@ -47,3 +47,13 @@
 	function log_out(){
 		session_destroy();   
 	}
+	function delete_file($path){
+		if (!unlink($path))
+		{
+		  echo ("Error deleting $path");
+		}
+		else
+		{
+		  // echo ("Deleted $path");
+		}
+	}

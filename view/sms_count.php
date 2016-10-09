@@ -49,7 +49,7 @@
 					document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
 				} else{
 					document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>"+data+"!</strong></div>"; 
-				}     
+				}
 			}
 		});
 
