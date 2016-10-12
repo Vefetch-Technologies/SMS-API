@@ -51,6 +51,24 @@
 			</tr>
 			<tr>
 				<td>
+					<p>Database(normal) :- </p>
+				</td>
+				<td>
+					<input type="text" name="sms_db_credentials_normal" class="form-control" placeholder="Database(normal)" required >
+					<strong>ip address|username|password|db name|port</strong>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Database(unicode) :- </p>
+				</td>
+				<td>
+					<input type="text" name="sms_db_credentials_unicode" class="form-control" placeholder="Database(unicode)" required >
+					<strong>ip address|username|password|db name|port</strong>
+					<input type="hidden" name="addons" value="1,2,5,6,8,9,10">
+				</td>
+			</tr>
+				<td>
 				</td>
 				<td>
 					<button type="submit" class="btn btn-success" style="width: 208px;">Add User</button>

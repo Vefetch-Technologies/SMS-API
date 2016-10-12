@@ -28,11 +28,11 @@
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode},
 				success: function(data) {  
 					// console.log(data); 
-					if (data == "SMS Sent") {
-						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
+					if (data == "Recharge your account") {
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
 					} else{
-						document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>"+data+"!</strong></div>"; 
-					}            
+						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
+					}             
 				}
 			});
 		});

@@ -11,7 +11,7 @@
 			return count_color("green",$selected_values[0]['sms_count']);
 		}
 		elseif ($selected_values[0]['sms_count']<100) {
-			send_message("VFETCH", $mobile_number, $message_content);
+			send_message("VFETCH", $mobile_number, $message_content, NULL);
 		 	return count_color("red",$selected_values[0]['sms_count']);
 		 	
 		}

@@ -89,11 +89,10 @@
 		if($total_message_count<=$user_sms_count){
 			// echo "sms is ready to send";
 			$id = $raw_values['user_id'];
-
 			update_user_sms_count($user_sms_count, $total_message_count, $id);
-			// print_r($phone_numbers);
+			// print_r($raw_values);
 			foreach ($phone_numbers as $key => $number) {
-				send_message($raw_values['sender_id'], $number, $raw_values['message']);
+				send_message($raw_values['sender_id'], $number, $raw_values['message'], $raw_values['unicode']);
 			}
 
 		}else{
