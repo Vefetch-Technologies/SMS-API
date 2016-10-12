@@ -2,6 +2,7 @@
 	
 	function select($column_names, $table_name, $conditions, $con){
 		$sql = get_select_query($column_names, $table_name, $conditions);
+		// print_r($sql);
 		if($result = execute_query($sql, $con)){
 			while($row = get_array_from_object($result)) {
 				$selected_rows[] = $row;

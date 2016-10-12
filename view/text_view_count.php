@@ -24,20 +24,18 @@
 			bulk_unicode = document.getElementById('bulk_unicode').value;
 				$.ajax({
 				type: "POST",
-				url: "send_bulk_sms.php",
+				url: "send_text_view.php",
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode},
 				success: function(data) {  
-					// console.log(data); 
+					// console.log(data);  
 					if (data == "SMS Sent") {
 						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
 					} else{
 						document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>"+data+"!</strong></div>"; 
-					}            
+					}           
 				}
 			});
 		});
-
-
 	});
 	function isNumber(evt) {
 		var theEvent = evt || window.event;

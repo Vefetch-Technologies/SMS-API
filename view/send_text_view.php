@@ -3,19 +3,14 @@
 	include_once '../admin/model/db.php';
 	include_once '../controller/process_message.php';
 	// echo "<pre>";
-	// print_r($_SESSION['bulk_data']);
+	// print_r($_SESSION['numbers']);
 	// print_r($_POST);
 	$message = $_POST['bulk_message'];
-	$headers = $_SESSION['headers'];
-	foreach ($headers as $value) {
-		$modified_headers[] = "#".$value."#";
-	}
-	// print_r($modified_headers);
-	$bulk_data = $_SESSION['bulk_data'];
+	$numbers = $_SESSION['numbers'];
 	$i = 0;
-	foreach ($bulk_data as  $value) {
-		$raw_values['message'] = str_replace($modified_headers,$bulk_data[$i],$message);
-		$raw_values['mobile_numbers'] = $bulk_data[$i]['number'];
+	foreach ($numbers as  $value) {
+		$raw_values['message'] = $message;
+		$raw_values['mobile_numbers'] = $value;
 		$raw_values['unicode'] = $_POST['bulk_unicode'];
 		$raw_values['user_id'] = $_SESSION['user_details']['id'];
 		$raw_values['sender_id'] = $_POST['bulk_sender_id'];

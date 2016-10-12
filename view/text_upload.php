@@ -2,8 +2,10 @@
 	include_once 'header.php'; 
 	include_once '../admin/model/db.php';
 	include_once '../admin/controller/common_functions.php';
+	
+
 	$conn = db_connect();
-	$condition = "(`user_id`=".$user_details['id'].") AND (`file_name` LIKE '%.csv%' OR `file_name` LIKE '%.xlsx%')";
+	$condition = "(`user_id`=".$user_details['id'].") ";
 	$result = select('*','`files`',$condition,$conn);
 	if (isset($_GET['status'])) {
 		if ($_GET['status'] == "queued") {
@@ -53,7 +55,7 @@
 				foreach ($result as $value) {
 					echo "<tr>";
 						echo "<td>";
-						echo "<a href='view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
+						echo "<a href='text_view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
 						echo "</td>";
 						echo "<td>";
 						echo "<a href='delete_file.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a>";
