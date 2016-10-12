@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2016 at 12:07 PM
+-- Generation Time: Oct 12, 2016 at 09:08 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -70,7 +70,8 @@ CREATE TABLE `addon_requests` (
 --
 
 INSERT INTO `addon_requests` (`id`, `user_id`, `addon_id`, `date_of_approved`, `validity`) VALUES
-(3, 3, 7, 0, '');
+(3, 3, 7, 0, ''),
+(4, 3, 4, 0, '');
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,8 @@ CREATE TABLE `files` (
 INSERT INTO `files` (`id`, `file_name`, `user_id`) VALUES
 (2, 'student_list_demo.xlsx', 2),
 (5, 'sms_api.sql', 5),
-(6, '1.xlsx', 5);
+(6, '1.xlsx', 5),
+(15, 'demo.xlsx', 3);
 
 -- --------------------------------------------------------
 
@@ -145,7 +147,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`, `addons`) VALUES
 (2, 'Arun', 'afm447', 'afm447@gmail.com', 'Rasipuram', 'Akv', '2016-09-25 08:57:26', 0, 'true', 9715804476, '1,2,5,6,8,9,10'),
-(3, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'Tiruchengode ', 'SUDHAK', '2016-09-27 05:54:37', 0, 'true', 9842972047, '1,2,5,6,8,9,10,4'),
+(3, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'Tiruchengode ', 'SUDHAK', '2016-09-27 05:54:37', 0, 'true', 9842972047, '1,2,5,6,8,9,10'),
 (4, 'Venkat', 'venkat1234', 'venkat.rvm1@gmail.com', 'Sankagiri', 'venkat', '2016-10-01 04:23:12', 0, 'true', 9597666369, '1,2,5,6,8,9,10');
 
 --
@@ -198,12 +200,12 @@ ALTER TABLE `addons`
 -- AUTO_INCREMENT for table `addon_requests`
 --
 ALTER TABLE `addon_requests`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `sms_count`
 --
