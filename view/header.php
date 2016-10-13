@@ -46,6 +46,7 @@ if($verify != "empty"){
   <link rel="stylesheet" type="text/css" href="../css/count.css">
   <link rel="stylesheet" type="text/css" href="../css/add_on.css">
   <script src="http://code.jquery.com/jquery-1.5.js"></script>
+  <script src="../js/charts/Chart.min.js"></script>
   <script src="../js/jquery-2.2.3.min.js"></script>
   <script type="text/javascript">
     function request(id){
