@@ -13,7 +13,7 @@
 		header('Location: ../view/single_sms.php');
 	}else{
 		echo "no data";
-		// header('Location: ../view/login.php?type=login_error');
+		header('Location: ../view/login.php?type=login_error');
 	}
 
 	
