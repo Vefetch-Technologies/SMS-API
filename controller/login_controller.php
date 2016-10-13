@@ -26,6 +26,7 @@
 		session_start();
 		$user_details = $data['0'];
 		$_SESSION["user_details"] = $user_details;
+		$_SESSION['check_value'] = 1;
 		if(isset($_SESSION['user_details'])){
 			return true;
 		}

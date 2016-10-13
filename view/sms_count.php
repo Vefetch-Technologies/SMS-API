@@ -45,11 +45,11 @@
 			data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id},
 			success: function(data) {  
 				// console.log(data);   
-				if (data == "SMS Sent") {
-					document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
-				} else{
-					document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>"+data+"!</strong></div>"; 
-				}
+					if (data == "Recharge your account") {
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
+					} else{
+						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
+					}
 			}
 		});
 

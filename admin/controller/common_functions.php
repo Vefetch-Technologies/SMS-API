@@ -6,7 +6,7 @@
 		// echo $sql;
 		mysqli_set_charset($conn, 'utf8mb4'); 
 		if(execute_query($sql, $conn)){
-			echo "SMS Sent";
+			// echo "SMS Sent";
 		}else{
 			echo "not sent";
 		}
