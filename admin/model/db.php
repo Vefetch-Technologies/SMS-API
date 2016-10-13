@@ -9,7 +9,6 @@
 		}
 		return $connection;
 	}
-
 	function sms_db_connect($unicode){
 		if(!empty($unicode)){
 			$conn = db_connect();
