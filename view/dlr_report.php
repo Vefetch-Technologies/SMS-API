@@ -1,11 +1,14 @@
-<?php include_once 'header.php'; ?>
 <?php 
-
+    include_once 'header.php'; 
     include_once '../controller/dlr_controller.php';
     $today_sent_failure_reports = get_today_sent_or_failed_data();
     $today_pending_report = get_qued_data();
 
  ?>
+ <div class="home_header">
+    <h1>Welcome <?php echo $user_details['user_name']; ?>, Today's Report</h1>
+    <hr style="border-top: 1px solid #191616">
+</div>
 <section class="container">
     <div class="col-md-10 col-md-offset-1" style="height: 35em">
         <div class="box box-danger">

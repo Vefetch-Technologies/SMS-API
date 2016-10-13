@@ -51,4 +51,7 @@
 			</div>
 		</div>
 	</div> -->
+	<div>
+		<h1>Welcome <?php echo $user_details['user_name']; ?></h1>
+	</div>
 <?php include_once 'footer.php'; ?>

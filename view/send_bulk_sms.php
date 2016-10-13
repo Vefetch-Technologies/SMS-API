@@ -12,7 +12,7 @@
 	}
 	$count = $_SESSION['user_details']['sms_count'];
 	$bulk_data = $_SESSION['bulk_data'];
-	if ($count < count($_SESSION['bulk_data'])) {
+	if ($count >= count($_SESSION['bulk_data'])) {
 		$i = 0;
 		foreach ($bulk_data as  $value) {
 			$raw_values['message'] = str_replace($modified_headers,$bulk_data[$i],$message);

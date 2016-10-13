@@ -8,7 +8,7 @@
 	$message = $_POST['bulk_message'];
 	$numbers = $_SESSION['numbers'];
 	$count = $_SESSION['user_details']['sms_count'];
-	if ($count < count($numbers)) {
+	if ($count >= count($numbers)) {
 		$i = 0;
 		foreach ($numbers as  $value) {
 			$raw_values['message'] = $message;

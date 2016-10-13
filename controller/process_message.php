@@ -29,6 +29,7 @@
 		}
 
 	}
+	
 	function check_code($for,$len){
 		$conn = db_connect();
 		if($for == "unicode"){
@@ -48,6 +49,7 @@
 			$i++;
 		}
 	}
+
 	function check_message_count_exceeds($value){
 		if(empty($value)){
 			return "empty";
@@ -55,6 +57,7 @@
 			return $value;
 		}
 	}
+
 	function count_total_messages(&$phone_numbers,$message_count){
 		// print_r($phone_numbers);
 		$phone_numbers = unset_fake_numbers($phone_numbers);
@@ -85,6 +88,7 @@
 		$user_sms=$sms[0]['sms_count'];
 		return $user_sms;
 	}
+
 	function processing_sms($total_message_count,$user_sms_count,$raw_values, $phone_numbers){
 		if($total_message_count<=$user_sms_count){
 			// echo "sms is ready to send";
@@ -101,9 +105,9 @@
 	}
 
 	function update_user_sms_count($user_sms_count, $total_message_count, $id){
-			$remaining_sms_count=$user_sms_count-$total_message_count;
-			$where='`id`='.$id;
-			$conn=db_connect();
-			$update_sms_count=array("sms_count"=>$remaining_sms_count );
-			update($update_sms_count,'`users`',$where,$conn);
+		$remaining_sms_count=$user_sms_count-$total_message_count;
+		$where='`id`='.$id;
+		$conn=db_connect();
+		$update_sms_count=array("sms_count"=>$remaining_sms_count );
+		update($update_sms_count,'`users`',$where,$conn);
 	}
