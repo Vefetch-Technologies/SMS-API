@@ -12,7 +12,7 @@
 	if (file_exists($target_file)) {
 	    $uploadOk = 0;
 	    echo "Sorry, file already exists.";
-		header('location: ../view/bulk_sms.php?status=file_exists');
+		header('location: ../view/text_upload.php?status=file_exists');
 	}
 	else
 	{
@@ -20,10 +20,10 @@
 	    	$sql = "INSERT INTO `files` (`file_name`, `user_id`) VALUES ('$file_name1', '$user_id')";
 			execute_query($sql, $link);
 	        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-	        header('location: ../view/bulk_sms.php?status=uploaded');
+	        header('location: ../view/text_upload.php?status=uploaded');
 	    } 
 	    else {
-	        header('location: ../view/bulk_sms.php?status=error');
+	        header('location: ../view/text_upload.php?status=error');
 	    }
 	}
 ?>

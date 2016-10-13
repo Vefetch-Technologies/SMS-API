@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 	include_once 'header.php'; 
 	include_once '../admin/model/db.php';
 	include_once '../admin/controller/common_functions.php';
@@ -27,7 +27,7 @@
 	<hr style="border-top: 1px solid #191616">
 </div>
 <h3>Upload File</h3>
-	<form action="../controller/upload.php" method="post" enctype="multipart/form-data">
+	<form action="../controller/text_upload_controller.php" method="post" enctype="multipart/form-data">
 		<table class="table">
 			<tr>
 				<td>

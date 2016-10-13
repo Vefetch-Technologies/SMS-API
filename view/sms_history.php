@@ -1,4 +1,7 @@
-<?php include_once 'header.php'; ?>
+<?php 
+	include_once 'header.php';
+	include_once 'sms_history_controller.php';
+	 ?>
 <div class="home_header">
 	<h1>Welcome <?php echo $user_details['user_name']; ?>, to SMS History</h1>
 	<hr style="border-top: 1px solid #191616">
@@ -18,4 +21,5 @@
 		</tr>
 	</table>
 </div>
+<div id="response"></div>
 <?php include_once 'footer.php'; ?>

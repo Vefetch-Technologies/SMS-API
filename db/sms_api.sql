@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2016 at 06:50 AM
+-- Generation Time: Oct 13, 2016 at 02:41 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -93,7 +93,10 @@ INSERT INTO `files` (`id`, `file_name`, `user_id`) VALUES
 (2, 'student_list_demo.xlsx', 2),
 (5, 'sms_api.sql', 5),
 (6, '1.xlsx', 5),
-(15, 'demo.xlsx', 3);
+(15, 'demo.xlsx', 3),
+(16, 'student_list_demo.xlsx', 8),
+(20, 'student_list_demo.xlsx', 10),
+(21, 'demo.xlsx', 10);
 
 -- --------------------------------------------------------
 
@@ -151,8 +154,8 @@ INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `send
 (2, 'Arun', 'afm447', 'afm447@gmail.com', 'Rasipuram', 'Akv', '2016-09-25 08:57:26', 0, 'true', 9715804476, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', ''),
 (4, 'Venkat', 'venkat1234', 'venkat.rvm1@gmail.com', 'Sankagiri', 'venkat', '2016-10-01 04:23:12', 0, 'true', 9597666369, '1,2,5,6,8,9,10', '', ''),
 (6, 'rubak', 'ezrubak', '14cse11@gmail.comn', 'sankagiri', 'RUBAKE', '2016-10-12 02:20:22', 0, 'true', 8940698743, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', '10.0.2.1|smpp|smpp1234|smpp|3306'),
-(8, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'tiruchengode', 'SUDHAK', '2016-10-12 02:32:54', 1, 'true', 9842972047, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', '10.0.2.1|smpp|smpp1234|smpp|3306'),
-(10, 'gautham', 'Manithan10100?', 'gauthamrgramalingam@gmail.com', '95,moongapadi Street\r\nGugai', 'GAUTHM', '2016-10-12 02:35:38', 98, 'true', 8695806252, '1,2,5,6,8,9,10', '10.0.2.1|temp|temp1234|temp|3306', '10.0.2.1|temp|temp1234|tempuni|3306');
+(8, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'tiruchengode', 'SUDHAK', '2016-10-12 02:32:54', 0, 'true', 9842972047, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', '10.0.2.1|smpp|smpp1234|smpp|3306'),
+(10, 'gautham', 'Manithan10100?', 'gauthamrgramalingam@gmail.com', '95,moongapadi Street\r\nGugai', 'GAUTHM', '2016-10-12 02:35:38', 1, 'true', 8695806252, '1,2,5,6,8,9,10', '10.0.2.1|temp|temp1234|temp|3306', '10.0.2.1|temp|temp1234|tempuni|3306');
 
 --
 -- Indexes for dumped tables
@@ -209,7 +212,7 @@ ALTER TABLE `addon_requests`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `sms_count`
 --
