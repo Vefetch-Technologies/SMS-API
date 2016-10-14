@@ -15,7 +15,10 @@ $url = end($exploded_values);
 $paid_addon_id =  explode(',',$addons_paid[0]['addons'] );
 $condition2 = "`path` ='".$url."'";
 $verify = select('`id`,`path_type`','`addons`', $condition2, $conn);
-// print_r($verify);
+
+$condition3 = "`id` =".$user_details['id']."";
+$sms_count = select('`sms_count`','`users`',$condition,$conn);
+$_SESSION['user_details']['sms_count'] = $sms_count[0]['sms_count'];
 $subscribed = 0;
 foreach ($paid_addon_id as $value) {
   if($verify != "empty"){
@@ -46,6 +49,7 @@ if($verify != "empty"){
   <link rel="stylesheet" type="text/css" href="../css/count.css">
   <link rel="stylesheet" type="text/css" href="../css/add_on.css">
   <script src="http://code.jquery.com/jquery-1.5.js"></script>
+  <script src="../js/charts/Chart.min.js"></script>
   <script src="../js/jquery-2.2.3.min.js"></script>
   <script type="text/javascript">
     function request(id){

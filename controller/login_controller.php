@@ -10,7 +10,7 @@
 	if($raw_data!="empty"){
 		print_r($raw_data);
 		create_session($raw_data);
-		header('Location: ../view/single_sms.php');
+		header('Location: ../view/home.php');
 	}else{
 		echo "no data";
 		header('Location: ../view/login.php?type=login_error');

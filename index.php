@@ -1,3 +1,3 @@
 <?php 
 
-header('location: view/dlr_report.php');
+header('location: view/home.php');

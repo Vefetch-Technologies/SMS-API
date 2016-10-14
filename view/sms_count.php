@@ -27,6 +27,7 @@
 		}
 	}
 	$('body').on('click', "#send_single_sms", function(){
+		setTimeout( function(){ location.reload();  }  , 300 );
 		$("form").submit(function(e){
 			e.preventDefault();
 	         var sender_id = $("#sender_id").val();
@@ -44,16 +45,19 @@
 				data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id},
 				success: function(data) {  
 					console.log(data);   
-						if (data == "Recharge your account") {
-							document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
-						} else{
-							document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
-						}
+					if (data == "Recharge your account") {
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
+					} else if(data ==  " make sure you enter correct phone numbers "){
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>"+data+"</div>"; 
+					} else if(data ==  "not able to send message due to over content"){
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>"+data+"</div>"; 
+					} else{
+						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
+					}
+					setTimeout( function(){ location.reload();  }  , 1000 );
 				}
 			});
 		});
-
-
 	});
 </script>
 <?php 
