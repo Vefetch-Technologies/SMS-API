@@ -27,7 +27,7 @@
 				url: "send_text_view.php",
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode},
 				success: function(data) {  
-					// console.log(data);  
+					console.log(data);  
 					if (data == "Recharge your account") {
 						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
 					} else{

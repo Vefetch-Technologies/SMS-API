@@ -15,7 +15,10 @@ $url = end($exploded_values);
 $paid_addon_id =  explode(',',$addons_paid[0]['addons'] );
 $condition2 = "`path` ='".$url."'";
 $verify = select('`id`,`path_type`','`addons`', $condition2, $conn);
-// print_r($verify);
+
+$condition3 = "`id` =".$user_details['id']."";
+$sms_count = select('`sms_count`','`users`',$condition,$conn);
+$_SESSION['user_details']['sms_count'] = $sms_count[0]['sms_count'];
 $subscribed = 0;
 foreach ($paid_addon_id as $value) {
   if($verify != "empty"){
