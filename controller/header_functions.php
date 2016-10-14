@@ -1,6 +1,5 @@
 <?php 
 	include_once '../admin/model/db.php';
-	include_once '../admin/controller/common_functions.php';
 
 	function get_count_data($id, $mobile_number){
 		$conn = db_connect();

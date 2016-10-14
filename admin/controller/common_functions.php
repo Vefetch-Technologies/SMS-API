@@ -32,14 +32,15 @@
 		
 
 	function landing_page_session_check(){
-		if(empty($_SESSION["user_details"])){
+		print_r($_SESSION);
+		if(!isset($_SESSION["user_details"]) || empty($_SESSION["user_details"])){
 			header('location:login.php');
 		}
 	}
 
 	function login_page_session_check(){
 		if(isset($_SESSION["user_details"])){
-			header('location:dlr_report.php');
+			header('location:home.php');
 		}
 	}
 
