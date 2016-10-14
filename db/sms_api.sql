@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2016 at 02:41 PM
+-- Generation Time: Oct 14, 2016 at 08:11 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -71,7 +71,9 @@ CREATE TABLE `addon_requests` (
 
 INSERT INTO `addon_requests` (`id`, `user_id`, `addon_id`, `date_of_approved`, `validity`) VALUES
 (3, 3, 7, 0, ''),
-(4, 3, 4, 0, '');
+(4, 3, 4, 0, ''),
+(5, 8, 7, 0, ''),
+(6, 8, 4, 0, '');
 
 -- --------------------------------------------------------
 
@@ -151,10 +153,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`, `addons`, `sms_db_credentials_normal`, `sms_db_credentials_unicode`) VALUES
-(2, 'Arun', 'afm447', 'afm447@gmail.com', 'Rasipuram', 'Akv', '2016-09-25 08:57:26', 0, 'true', 9715804476, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', ''),
-(4, 'Venkat', 'venkat1234', 'venkat.rvm1@gmail.com', 'Sankagiri', 'venkat', '2016-10-01 04:23:12', 0, 'true', 9597666369, '1,2,5,6,8,9,10', '', ''),
-(6, 'rubak', 'ezrubak', '14cse11@gmail.comn', 'sankagiri', 'RUBAKE', '2016-10-12 02:20:22', 0, 'true', 8940698743, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', '10.0.2.1|smpp|smpp1234|smpp|3306'),
-(8, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'tiruchengode', 'SUDHAK', '2016-10-12 02:32:54', 0, 'true', 9842972047, '1,2,5,6,8,9,10', '10.0.2.1|smpp|smpp1234|smpp|3306', '10.0.2.1|smpp|smpp1234|smpp|3306'),
+(8, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'tiruchengode', 'SUDHAK', '2016-10-12 02:32:54', 64, 'true', 9842972047, '1,2,5,6,8,9,10', '10.0.2.1|temp|temp1234|temp|3306', '10.0.2.1|temp|temp1234|tempuni|3306'),
 (10, 'gautham', 'Manithan10100?', 'gauthamrgramalingam@gmail.com', '95,moongapadi Street\r\nGugai', 'GAUTHM', '2016-10-12 02:35:38', 1, 'true', 8695806252, '1,2,5,6,8,9,10', '10.0.2.1|temp|temp1234|temp|3306', '10.0.2.1|temp|temp1234|tempuni|3306');
 
 --
@@ -207,7 +206,7 @@ ALTER TABLE `addons`
 -- AUTO_INCREMENT for table `addon_requests`
 --
 ALTER TABLE `addon_requests`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `files`
 --
