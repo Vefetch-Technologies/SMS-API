@@ -70,7 +70,7 @@
 	function unset_fake_numbers($numbers){
 		$count = count($numbers);
 		for ($i=0; $i < $count; $i++) { 
-			if(strlen($numbers[$i]) == 10){
+			if(strlen($numbers[$i]) == 10 && $numbers[$i] > 7000000000){
 				continue;
 			}else{
 				unset($numbers[$i]);
