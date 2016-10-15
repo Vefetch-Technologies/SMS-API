@@ -32,7 +32,6 @@
 		
 
 	function landing_page_session_check(){
-		print_r($_SESSION);
 		if(!isset($_SESSION["user_details"]) || empty($_SESSION["user_details"])){
 			header('location:login.php');
 		}

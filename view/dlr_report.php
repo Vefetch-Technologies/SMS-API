@@ -58,10 +58,6 @@
             $html_content1 = '<tr class="success">';
             $delivered++;
           break;
-
-          default:
-            echo "Sorry Something went wrong";
-          break;
         }
         $html_content2 = "<td>".++$sno."</td><td>".$today_sent_failure_report['SendTime']."</td><td>".$today_sent_failure_report['MessageText']."</td><td>".$today_sent_failure_report['MessageTo']."</td><td>".$today_sent_failure_report['StatusText']."</td><tr>";
         $total_html = $total_html.$html_content1.$html_content2;

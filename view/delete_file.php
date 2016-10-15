@@ -8,5 +8,5 @@
 	 $f_name = "../files/".$_SESSION['user_details']['email_id']."/"."$name";
 	 print_r($f_name);
 	 delete_file($f_name);
-	 header("Location: home.php");
+	 header("Location: bulk_sms.php");
 	?>
