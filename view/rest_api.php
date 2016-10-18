@@ -15,12 +15,17 @@
 			url = $('#url').val();
 			$.ajax(url, { 
 				'success': function(data) {
-					console.log(data);
-					if (data == "SMS Sent") {
-						document.getElementById('response').innerHTML = "<div class='alert alert-success col-md-6'><strong>Success!</strong>Message sent</div>"; 
+					// console.log(data);
+					if (data == "Recharge your account") {
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger col-md-6'><strong>Sorry!</strong>Recharge your account.</div>"; 
+					} else if(data ==  " make sure you enter correct phone numbers "){
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger col-md-6'><strong>Oops!</strong>"+data+"</div>"; 
+					} else if(data ==  "not able to send message due to over content"){
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger col-md-6'><strong>Oops!</strong>"+data+"</div>"; 
 					} else{
-						document.getElementById('response').innerHTML = "<div class='alert alert-danger col-md-6'><strong>"+data+"</strong></div>"; 
-					} 
+						document.getElementById('response').innerHTML = "<div class='alert alert-success col-md-6'><strong>Success!</strong>Message sent</div>"; 
+					}
+					setTimeout( function(){ location.reload();  }  , 1000 );
 				}
 			});
 		})

@@ -14,13 +14,19 @@
 		// echo $query['message'];
 		// echo $query['phone_number'];
 		$raw = array('sender_id' => $raw_data['sender_id'] ,'mobile_numbers' => $query['phone_number'],'message' => $query['message'],'unicode' => $query['unicode'] ,'sms_count' => $raw_data['sms_count'],'user_id' => $raw_data['id'] );
+		echo "<html><head><title></title></head><body><h1>OK</h1></body></html>";
 		process_all_values($raw);
 	}else{
-		echo "Username or password is not valid!";
+		echo "Check_URL";
 	}
 
 
 	function get_raw_data($email, $password, $con){
 		$selected_row = select('*', 'users', array("email_id"=>$email, "password"=>$password), $con);
+		if ($selected_row == "empty") {
+			return "empty";
+		}
+		else{
 		return $selected_row[0];
+		}
 	}

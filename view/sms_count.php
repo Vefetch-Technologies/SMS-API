@@ -44,7 +44,7 @@
 				url: "../controller/send_sms.php",
 				data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id},
 				success: function(data) {  
-					console.log(data);   
+					// console.log(data);   
 					if (data == "Recharge your account") {
 						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
 					} else if(data ==  " make sure you enter correct phone numbers "){
