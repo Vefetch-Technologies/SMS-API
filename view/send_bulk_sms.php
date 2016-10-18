@@ -3,8 +3,8 @@
 	include_once '../admin/model/db.php';
 	include_once '../controller/process_message.php';
 	// echo "<pre>";
-	print_r($_SESSION['bulk_data']);
-	print_r($_POST);
+	// print_r($_SESSION['bulk_data']);
+	// print_r($_POST);
 	$message = $_POST['bulk_message'];
 	$headers = $_SESSION['headers'];
 	foreach ($headers as $value) {
@@ -23,6 +23,7 @@
 			process_all_values($raw_values);
 			$i++;
 		}
+		unset($_SESSION['bulk_data']));
 	}else{
 		echo "Recharge your account";
 	}

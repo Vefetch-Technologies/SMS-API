@@ -22,6 +22,7 @@
 			process_all_values($raw_values);
 			$i++;
 		}
+		unset($_SESSION['numbers']);
 	}
 	else{
 		echo "Recharge your account";
