@@ -8,9 +8,9 @@
 	$message = $_POST['bulk_message'];
 	$numbers = $_SESSION['numbers'];
 	$count = $_SESSION['user_details']['sms_count'];
-	print_r($numbers);
-	print_r(count($numbers));
-	print_r($count);
+	// print_r($numbers);
+	// print_r(count($numbers));
+	// print_r($count);
 	if ($count >= count($numbers)) {
 		$i = 0;
 		foreach ($numbers as  $value) {
@@ -23,6 +23,7 @@
 			$i++;
 		}
 		unset($_SESSION['numbers']);
+		echo "SMS sent successfully";
 	}
 	else{
 		echo "Recharge your account";
