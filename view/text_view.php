@@ -22,7 +22,6 @@
 				<th><input type="checkbox" id="checkAll" /> Check All</th>
 				<input style="width: 70px;float: right;" type="button" id="next" class="form-control" id="next" value="Next">
 
-				<input type="hidden" name="hidden_format_name" value="<?php echo $heading_val; ?>">
 			</tr>
 		</thead>
 		<tbody>

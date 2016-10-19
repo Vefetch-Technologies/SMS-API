@@ -21,7 +21,11 @@
 			e.preventDefault();
 			bulk_sender_id = document.getElementById('bulk_sender_id').value;
 			bulk_message = document.getElementById('bulk_message').value;
-			bulk_unicode = document.getElementById('bulk_unicode').value;
+			if(document.getElementById('bulk_unicode').checked) {
+				bulk_unicode = "checked";
+			} else {
+				bulk_unicode = "not_checked";
+			}
 				document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 				$('#send_bulk_sms').attr("disabled", true);
 				$.ajax({
