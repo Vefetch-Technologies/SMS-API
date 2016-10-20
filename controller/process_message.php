@@ -41,7 +41,7 @@
 		}
 		$i = 1;
 		foreach ($selected_rows as $key => $value) {
-			if($len <= $value){
+			if($len < $value){
 				return $i; 
 			}
 			$i++;

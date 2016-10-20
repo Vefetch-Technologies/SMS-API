@@ -65,8 +65,7 @@
 	         var mobile_numbers = $("#mobile_numbers").val();
 	         var message = $("#message").val();
 			if (isDoubleByte(message)) {
-				$('#unicode').attr('checked', false);
-				$('#unicode').attr('checked', true);
+				$('#unicode').prop('checked', true);
 			}
 	         var user_id = $("#user_id").val();
 	        if(document.getElementById('unicode').checked) {
