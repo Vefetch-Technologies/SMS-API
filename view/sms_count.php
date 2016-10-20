@@ -29,7 +29,7 @@
 	}
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
-		var message = $("#message").val();
+		message = $("#message").val();
 		if (isDoubleByte(message)) {
 			$('#unicode').prop('checked', true);
 		}

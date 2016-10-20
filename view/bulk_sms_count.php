@@ -2,6 +2,9 @@
 
 	function countChar(val) {
 		len = val.value.length;
+		if (isDoubleByte(val.value)) {
+			$('#bulk_unicode').attr('checked', true);
+		}
 		if(document.getElementById('unicode').checked) {
 			if (len <= 536) {
 				<?php get_check_code("unicode"); ?>
@@ -16,8 +19,20 @@
 			}
 		}
 	}
+	function isDoubleByte(str) {
+		for (var i = 0, n = str.length; i < n; i++) {
+			if (str.charCodeAt( i ) > 255) { 
+				return true; 
+			}
+		}
+		return false;
+	}
 	$('body').on('click', "#bulk_unicode", function(){
 		len = $("#bulk_message").val().length;
+		message = $("#bulk_message").val();
+		if (isDoubleByte(message)) {
+			$('#bulk_unicode').prop('checked', true);
+		}
 		if(document.getElementById('unicode').checked) {
 			if (len <= 536) {
 				<?php get_check_code("unicode"); ?>
