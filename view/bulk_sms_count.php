@@ -2,18 +2,34 @@
 
 	function countChar(val) {
 		len = val.value.length;
-		if(document.getElementById('bulk_unicode').checked) {
-			<?php get_check_code("unicode"); ?>
-		} else {
-			<?php get_check_code("normal"); ?>
+		if(document.getElementById('unicode').checked) {
+			if (len <= 536) {
+				<?php get_check_code("unicode"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
+		}else{
+			if (len <= 1224) {
+				<?php get_check_code("normal"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
 		}
 	}
 	$('body').on('click', "#bulk_unicode", function(){
 		len = $("#bulk_message").val().length;
-		if(document.getElementById('bulk_unicode').checked) {
-			<?php get_check_code("unicode"); ?>
-		} else {
-			<?php get_check_code("normal"); ?>
+		if(document.getElementById('unicode').checked) {
+			if (len <= 536) {
+				<?php get_check_code("unicode"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
+		}else{
+			if (len <= 1224) {
+				<?php get_check_code("normal"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
 		}
 	});
 	$('body').on('click', "#send_bulk_sms", function(){

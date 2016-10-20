@@ -3,17 +3,38 @@
 	function countChar(val) {
 		len = val.value.length;
 		if(document.getElementById('unicode').checked) {
-			<?php get_check_code("unicode"); ?>
-		} else {
-			<?php get_check_code("normal"); ?>
+			if (len <= 536) {
+				<?php get_check_code("unicode"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
+		}else{
+			if (len <= 1224) {
+				<?php get_check_code("normal"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
 		}
+	}
+	function length(str) {
+		// character count to byte conversion
+		var m = encodeURIComponent(str).match(/%[89ABab]/g);
+		return str.length + (m ? m.length : 0);
 	}
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		if(document.getElementById('unicode').checked) {
-			<?php get_check_code("unicode"); ?>
-		} else {
-			<?php get_check_code("normal"); ?>
+			if (len <= 536) {
+				<?php get_check_code("unicode"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
+		}else{
+			if (len <= 1224) {
+				<?php get_check_code("normal"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
 		}
 	});
 	function isNumber(evt) {
