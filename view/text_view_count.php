@@ -51,6 +51,7 @@
 			}
 				document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 				$('#send_bulk_sms').attr("disabled", true);
+				window.location.href = "home.php";
 				$.ajax({
 				type: "POST",
 				url: "send_text_view.php",

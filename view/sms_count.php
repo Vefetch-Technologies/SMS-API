@@ -57,8 +57,8 @@
 		if (theEvent.preventDefault) theEvent.preventDefault();
 		}
 	}
-	$('body').on('click', "#send_single_sms", function(){
-		setTimeout( function(){ location.reload();  }  , 300 );
+	$('body').one('click', "#send_single_sms", function(e){
+		// setTimeout( function(){ location.reload();  }  , 300 );
 		$("form").submit(function(e){
 			e.preventDefault();
 	         var sender_id = $("#sender_id").val();
@@ -73,12 +73,15 @@
 			} else {
 				var unicode = "not_checked";
 			}
+			$('#send_single_sms').attr("disabled", true);
+			document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
+			window.location.href = "home.php";
 			$.ajax({
 				type: "POST",
 				url: "../controller/send_sms.php",
 				data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id},
 				success: function(data) {  
-					// console.log(data);   
+					console.log(data);   
 					if (data == "Recharge your account") {
 						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
 					} else if(data ==  " make sure you enter correct phone numbers "){
@@ -88,7 +91,7 @@
 					} else{
 						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
 					}
-					setTimeout( function(){ location.reload();  }  , 1000 );
+					// setTimeout( function(){ location.reload();  }  , 1000 );
 				}
 			});
 		});
