@@ -5,7 +5,7 @@
 		if (isDoubleByte(val.value)) {
 			$('#bulk_unicode').attr('checked', true);
 		}
-		if(document.getElementById('unicode').checked) {
+		if(document.getElementById('bulk_unicode').checked) {
 			if (len <= 536) {
 				<?php get_check_code("unicode"); ?>
 			}else{
@@ -25,7 +25,7 @@
 		if (isDoubleByte(message)) {
 			$('#bulk_unicode').prop('checked', true);
 		}
-		if(document.getElementById('unicode').checked) {
+		if(document.getElementById('bulk_unicode').checked) {
 			if (len <= 536) {
 				<?php get_check_code("unicode"); ?>
 			}else{
@@ -74,6 +74,14 @@
 			theEvent.returnValue = false;
 		if (theEvent.preventDefault) theEvent.preventDefault();
 		}
+	}
+	function isDoubleByte(str) {
+		for (var i = 0, n = str.length; i < n; i++) {
+			if (str.charCodeAt( i ) > 255) { 
+				return true; 
+			}
+		}
+		return false;
 	}
 	</script>
 <?php 
