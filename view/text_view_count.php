@@ -58,7 +58,6 @@
 				success: function(data) {  
 					// console.log(data);  
 					document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>Hey!</strong>"+data+" hope it is positive or contact support</div>"; 
-					
 				}
 			});
 		});

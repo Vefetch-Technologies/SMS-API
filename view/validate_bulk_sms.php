@@ -15,7 +15,6 @@
 	$headers[$count] = "number";
 	foreach ($raw_data as $value) {
 		$final_values = explode('|', $value);
-		// print_r($final_values);
 		for ($i=0; $i < count($final_values); $i++) { 
 			$final_data[$j][$headers[$i]] = $final_values[$i];
 		}

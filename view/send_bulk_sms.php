@@ -23,7 +23,8 @@
 			process_all_values($raw_values);
 			$i++;
 		}
-		unset($_SESSION['bulk_data']));
+		unset($_SESSION['bulk_data']);
+		echo "SMS sent successfully";
 	}else{
 		echo "Recharge your account";
 	}

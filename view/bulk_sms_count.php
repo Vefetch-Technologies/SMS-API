@@ -57,22 +57,19 @@
 			} else {
 				bulk_unicode = "not_checked";
 			}
-				$.ajax({
+			document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
+			$('#send_bulk_sms').attr("disabled", true);
+			$.ajax({
 				type: "POST",
 				url: "send_bulk_sms.php",
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode},
 				success: function(data) {  
 					// console.log(data); 
-					if (data == "Recharge your account") {
-						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
-					} else{
-						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
-					}             
+					document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>Hey!</strong>"+data+" hope it is positive or contact support</div>";          
 				}
 			});
 		});
-
-
+			document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 	});
 	function isNumber(evt) {
 		var theEvent = evt || window.event;
