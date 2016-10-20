@@ -2,18 +2,49 @@
 
 	function countChar(val) {
 		len = val.value.length;
-		if(document.getElementById('unicode').checked) {
-			<?php get_check_code("unicode"); ?>
-		} else {
-			<?php get_check_code("normal"); ?>
+		if (isDoubleByte(val.value)) {
+			$('#unicode').attr('checked', true);
 		}
+		if(document.getElementById('unicode').checked) {
+			if (len <= 536) {
+				<?php get_check_code("unicode"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";				
+			}
+		}else{
+			if (len <= 1224) {
+				<?php get_check_code("normal"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
+		}
+	}
+	function isDoubleByte(str) {
+		for (var i = 0, n = str.length; i < n; i++) {
+			if (str.charCodeAt( i ) > 255) { 
+				return true; 
+			}
+		}
+		return false;
 	}
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
+		message = $("#message").val();
+		if (isDoubleByte(message)) {
+			$('#unicode').prop('checked', true);
+		}
 		if(document.getElementById('unicode').checked) {
-			<?php get_check_code("unicode"); ?>
-		} else {
-			<?php get_check_code("normal"); ?>
+			if (len <= 536) {
+				<?php get_check_code("unicode"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
+		}else{
+			if (len <= 1224) {
+				<?php get_check_code("normal"); ?>
+			}else{
+				document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>not able to send message due to over content</div>";
+			}
 		}
 	});
 	function isNumber(evt) {
@@ -33,6 +64,11 @@
 	         var sender_id = $("#sender_id").val();
 	         var mobile_numbers = $("#mobile_numbers").val();
 	         var message = $("#message").val();
+			if (isDoubleByte(message)) {
+				console.log("Im in");
+				$('#unicode').attr('checked', false);
+				$('#unicode').attr('checked', true);
+			}
 	         var user_id = $("#user_id").val();
 	        if(document.getElementById('unicode').checked) {
 				var unicode = "checked";

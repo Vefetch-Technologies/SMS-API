@@ -1,7 +1,7 @@
 <?php 
 	function process_all_values($raw_values){
 		// print_r($raw_values);
-		$total_message_length=strlen($raw_values['message']);
+		$total_message_length=iconv_strlen($raw_values['message'] , "UTF-8");
 		// print_r($raw_values);
 		$message_count=get_message_count($total_message_length,$raw_values['unicode']);
 		if($message_count!="empty"){
@@ -14,8 +14,6 @@
 				$user_sms_count=get_user_sms_count($raw_values['user_id']);
 				processing_sms($total_message_count,$user_sms_count,$raw_values,$total_phone_numbers);
 			}
-			
-
 		}else{
 			echo "not able to send message due to over content";
 		}
