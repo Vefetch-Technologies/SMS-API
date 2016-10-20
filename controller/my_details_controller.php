@@ -14,7 +14,7 @@ $('body').on('click', "#submit", function(){
 		url: "../controller/update_my_details.php",
 		data:{user_name : user_name, mobile_number : mobile_number, address : address, password : password, email_id : email_id,  id : id},
 		success: function(data) {
-			console.log(data);    
+			// console.log(data);    
 			if (data){
 				document.getElementById('response').innerHTML =  "<strong>Success!</strong> Account updated.";
 			}      

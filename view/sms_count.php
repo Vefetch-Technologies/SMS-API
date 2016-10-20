@@ -65,7 +65,6 @@
 	         var mobile_numbers = $("#mobile_numbers").val();
 	         var message = $("#message").val();
 			if (isDoubleByte(message)) {
-				console.log("Im in");
 				$('#unicode').attr('checked', false);
 				$('#unicode').attr('checked', true);
 			}
