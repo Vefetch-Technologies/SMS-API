@@ -6,6 +6,7 @@
 	}
 	else{	
 	$_SESSION['numbers']= $_POST['user_data'];
+	echo "<blockquote style='color:red'>Contacts selected : ".count($_SESSION['numbers'])."</blockquote>";
 	// print_r($number);
 	// print_r($headers);
 ?>	
