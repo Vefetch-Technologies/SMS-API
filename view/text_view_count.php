@@ -51,14 +51,14 @@
 			}
 				document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 				$('#send_bulk_sms').attr("disabled", true);
-				window.open("http://sms2.vefetch.com/");
+				// window.open("http://sms2.vefetch.com/");
 				$.ajax({
 				type: "POST",
 				url: "send_text_view.php",
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode},
 				success: function(data) {  
 					// console.log(data);  
-					document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>Hey!</strong>"+data+" hope it is positive or contact support</div>"; 
+					document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Hey!</strong>"+data+"</div>"; 
 				}
 			});
 		});

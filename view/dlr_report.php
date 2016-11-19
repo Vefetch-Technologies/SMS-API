@@ -2,7 +2,7 @@
     include_once 'header.php'; 
     include_once '../controller/dlr_controller.php';
     $today_sent_failure_reports = get_today_sent_or_failed_data();
-    $today_pending_report = get_qued_data();
+    $today_pending_report = get_qued_data($user_details['sender_id']);
 
  ?>
  <div class="home_header">
