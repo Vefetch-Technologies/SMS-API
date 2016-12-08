@@ -28,7 +28,7 @@
 	    $t1 = strtotime($a['SendTime']);
 	    $t2 = strtotime($b['SendTime']);
 	    return $t1 - $t2;
-	}    
+	}  
 	if(!empty($final_result)){
 		$html = '<table class="table"><thead>
 					<tr>
@@ -42,7 +42,10 @@
 					<th>Status Text</th>
 					</tr>
 					</thead><tbody>';
-					$i = 1;
+		if(count($final_result)>500){
+			$final_result = array_slice($final_result, 0, 500); 
+		}
+		$i = 1;
 		foreach ($final_result as $value) {
 			$html = $html . "<td>".$i."</td><td>".$value['Id']."</td><td>".$value['MessageFrom']."</td><td>".$value['SendTime']."</td><td>".$value['ReceiveTime']."</td><td>".$value['MessageTo']."</td><td>".$value['MessageText']."</td><tr>";
 			$i++;
