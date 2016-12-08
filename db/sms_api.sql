@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2016 at 08:18 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Generation Time: Oct 20, 2016 at 08:53 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -65,6 +65,16 @@ CREATE TABLE `addon_requests` (
   `validity` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `addon_requests`
+--
+
+INSERT INTO `addon_requests` (`id`, `user_id`, `addon_id`, `date_of_approved`, `validity`) VALUES
+(3, 3, 7, 0, ''),
+(4, 3, 4, 0, ''),
+(5, 8, 7, 0, ''),
+(6, 8, 4, 0, '');
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +86,13 @@ CREATE TABLE `files` (
   `file_name` varchar(255) NOT NULL,
   `user_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`id`, `file_name`, `user_id`) VALUES
+(23, 'V- VIII DB.xlsx', 11);
 
 -- --------------------------------------------------------
 
@@ -124,6 +141,14 @@ CREATE TABLE `users` (
   `sms_db_credentials_normal` varchar(1000) NOT NULL,
   `sms_db_credentials_unicode` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `password`, `email_id`, `address`, `sender_id`, `date_of_creation`, `sms_count`, `active`, `mobile_number`, `addons`, `sms_db_credentials_normal`, `sms_db_credentials_unicode`) VALUES
+(10, 'gautham', 'Manithan10100?', 'gauthamrgramalingam@gmail.com', '95,moongapadi Street\r\nGugai', 'GAUTHM', '2016-10-12 02:35:38', 1, 'true', 8695806252, '1,2,4,5,6,8,9,10', '10.0.2.1|temp|temp1234|temp|3306', '10.0.2.1|temp|temp1234|tempuni|3306'),
+(11, 'sudhakar', 'p.nandhu', 'asudhakar@live.in', 'tiruchengode', 'SUDHAK', '2016-10-19 06:58:02', 346, 'true', 7695959945, '1,2,4,5,6,8,9,10', '10.0.2.1|temp|temp1234|temp|3306', '10.0.2.1|temp|temp1234|tempuni|3306');
 
 --
 -- Indexes for dumped tables
@@ -175,12 +200,12 @@ ALTER TABLE `addons`
 -- AUTO_INCREMENT for table `addon_requests`
 --
 ALTER TABLE `addon_requests`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `sms_count`
 --
@@ -190,7 +215,7 @@ ALTER TABLE `sms_count`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
