@@ -73,7 +73,19 @@
 				<label><input type="checkbox" id="bulk_unicode" name="unicode"> Unicode</label>
 				</td>
 			</tr>
-				<tr>
+			<tr>
+				<td>
+					<button type="button" class="btn btn-primary" id="show_schedule" style="width: 208px;">Schedule</button>
+				</td>
+				<td id="schedule">
+					<input type="date" name="date" class="form-control" placeholder="date" id="Date" >
+					<br/>
+					<input type="time" name="time" class="form-control" placeholder="Time" id="time" >
+					<br/>
+					<div id="notifier"></div>
+				</td>
+			</tr>
+			<tr>
 				<td>
 				</td>
 				<td>

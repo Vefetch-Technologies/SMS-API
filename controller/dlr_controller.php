@@ -26,8 +26,8 @@
 		}
 	}
 
-	function get_qued_data($sender_id){
-		$sql = 'SELECT COUNT(MessageFrom) FROM MessageOut WHERE MessageFrom = '."'".$sender_id."'";
+	function get_qued_data(){
+		$sql = 'SELECT COUNT(MessageFrom) FROM MessageOut';
 		$conn = sms_db_connect("not_checked");
 		$result = execute_query($sql, $conn);
 		$row = get_array_from_object($result);

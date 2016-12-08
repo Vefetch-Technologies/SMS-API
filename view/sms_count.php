@@ -1,5 +1,5 @@
 <script type="text/javascript">
-
+	var test = 1;
 	function countChar(val) {
 		len = val.value.length;
 		if (isDoubleByte(val.value)) {
@@ -27,6 +27,7 @@
 		}
 		return false;
 	}
+
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		message = $("#message").val();
@@ -47,6 +48,38 @@
 			}
 		}
 	});
+	$(document).ready(function() {
+		$('#schedule').hide();
+	});
+	$('body').on('click', "#show_schedule", function(){
+		$('#schedule').toggle();
+		$('#send_single_sms').toggle();
+	});
+	$('body').on('click', "#schedule_sms", function(e){
+		var date = $("#date").val();
+		var time = $("#time").val();
+		date_split = date.split('-');
+		time_split = time.split(':');
+		console.log(date_split);
+		console.log(time_split);    
+		var humDate = new Date(Date.UTC(date_split[0],
+		stripLeadingZeroes((date_split[1])-1),
+		stripLeadingZeroes(date_split[2]),
+		stripLeadingZeroes(time_split[0]),
+		stripLeadingZeroes(time_split[1]),00));
+		data = (humDate.getTime());
+		console.log(data);
+		var d = new Date();
+		var seconds = d.getTime();
+		console.log(seconds);
+	});
+	function stripLeadingZeroes(input){
+		if((input.length > 1) && (input.substr(0,1) == "0"))
+			return input.substr(1);
+		else
+			return input;
+	}
+
 	function isNumber(evt) {
 		var theEvent = evt || window.event;
 		var key = theEvent.keyCode || theEvent.which;

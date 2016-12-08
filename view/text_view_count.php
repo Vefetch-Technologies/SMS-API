@@ -39,6 +39,12 @@
 			}
 		}
 	});
+	$(document).ready(function() {
+		$('#schedule').hide();
+	});
+	$('body').on('click', "#show_schedule", function(){
+		$('#schedule').toggle();
+	});
 	$('body').on('click', "#send_bulk_sms", function(){
 		$("form").submit(function(e){
 			e.preventDefault();

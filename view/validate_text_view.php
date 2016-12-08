@@ -25,7 +25,7 @@
 						<?php
 							if(is__array($user_details['sender_id'])){
 								foreach ($user_details['sender_id'] as $key => $sender_id) {
-									echo $sender_id;
+									echo "<option>".$sender_id."</option>";
 								} 
 							}else{
 								echo "<option>".$user_details['sender_id']."</option>";
@@ -41,6 +41,18 @@
 				<td>
 				<textarea class="form-control" rows="5" id="bulk_message" name="message" onkeyup="countChar(this)" required></textarea>
 				<div id="bulk_charNum">Number of SMS will Send = 1 (0)</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" class="btn btn-primary" id="show_schedule" style="width: 208px;">Schedule</button>
+				</td>
+				<td id="schedule">
+					<input type="date" name="date" class="form-control" placeholder="date" id="Date" >
+					<br/>
+					<input type="time" name="time" class="form-control" placeholder="Time" id="time" >
+					<br/>
+					<div id="notifier"></div>
 				</td>
 			</tr>
 			<tr>

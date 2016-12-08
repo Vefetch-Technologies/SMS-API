@@ -20,7 +20,7 @@
 						<?php
 							if(is__array($user_details['sender_id'])){
 								foreach ($user_details['sender_id'] as $key => $sender_id) {
-									echo $sender_id;
+									echo "<option>".$sender_id."</option>";
 								} 
 							}else{
 								echo "<option>".$user_details['sender_id']."</option>";
@@ -51,6 +51,19 @@
 				</td>
 				<td>
 					<label><input type="checkbox" id="unicode" name="unicode"> Unicode</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" class="btn btn-primary" id="show_schedule" style="width: 208px;">Schedule</button>
+				</td>
+				<td id="schedule">
+					<input type="date" name="date" class="form-control" placeholder="Date" id="date" >
+					<br/>
+					<input type="time" name="time" class="form-control" placeholder="Time" id="time" >
+					<br/>
+					<div id="notifier"></div>
+					<button type="button" class="btn btn-success" id="schedule_sms" style="width: 208px;">Schedule Sms</button>
 				</td>
 			</tr>
 			<tr>
