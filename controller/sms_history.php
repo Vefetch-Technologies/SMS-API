@@ -4,11 +4,11 @@
 	// print_r($_POST);
 	$conn = sms_db_connect("not_checked");
 	$condition = " `SendTime` between '".$_POST['starting_date']." 00:00:00' and '".$_POST['ending_date']." 23:59:59'";
-	$result = select('`Id`, `MessageFrom`, `SendTime`, `ReceiveTime`, `MessageTo`, `MessageText`, `StatusText`', '`MessageLog`', $condition, $conn);
+	$result = select('`Id`, `MessageFrom`, `SendTime`, `ReceiveTime`, `MessageTo`, `MessageText`, `StatusText`, `StatusCode`', '`MessageLog`', $condition, $conn);
 	// print_r($result);
 	$conn1 = sms_db_connect("checked");
 	$condition1 = " `SendTime` between '".$_POST['starting_date']." 00:00:00' and '".$_POST['ending_date']." 23:59:59'";
-	$result1 = select('`Id`, `MessageFrom`, `SendTime`, `ReceiveTime`, `MessageTo`, `MessageText`, `StatusText`', '`MessageLog`', $condition1, $conn1);
+	$result1 = select('`Id`, `MessageFrom`, `SendTime`, `ReceiveTime`, `MessageTo`, `MessageText`, `StatusText`, `StatusCode`', '`MessageLog`', $condition1, $conn1);
 	if ($result == "empty" && $result1 == "empty") {
 		$final_result = NULL;
 	}else if($result == "empty" || $result1 == "empty"){
@@ -47,10 +47,23 @@
 		}
 		$i = 1;
 		foreach ($final_result as $value) {
-			$html = $html . "<td>".$i."</td><td>".$value['Id']."</td><td>".$value['MessageFrom']."</td><td>".$value['SendTime']."</td><td>".$value['ReceiveTime']."</td><td>".$value['MessageTo']."</td><td>".$value['MessageText']."</td><tr>";
+			switch ($value['StatusCode']) {
+	          case '300':
+	            $html_content1 = '<tr class="danger">';
+	          break;
+
+	          case '200':
+	            $html_content1 = '<tr class="warning">';
+	          break;
+
+	          case '201':
+	            $html_content1 = '<tr class="success">';
+	          break;
+	        }
+			$html = $html. $html_content1 . "<td>".$i."</td><td>".$value['Id']."</td><td>".$value['MessageFrom']."</td><td>".$value['SendTime']."</td><td>".$value['ReceiveTime']."</td><td>".$value['MessageTo']."</td><td>".$value['MessageText']."</td><td>".$value['StatusText']."</td></tr>";
 			$i++;
 		}
-		print_r($html);
+		echo($html);
 	}else{
 		echo "No data found :(";
 	}

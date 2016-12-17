@@ -2,7 +2,6 @@
 	include_once 'header.php'; 
  	include_once 'sms_count.php'; 
 	include_once '../admin/controller/common_functions.php';
- 	
  ?>
 <div>
 	<h1>Single SMS</h1>
@@ -63,7 +62,7 @@
 					<input type="time" name="time" class="form-control" placeholder="Time" id="time" >
 					<br/>
 					<div id="notifier"></div>
-					<button type="button" class="btn btn-success" id="schedule_sms" style="width: 208px;">Schedule Sms</button>
+					<button type="submit" class="btn btn-success" id="schedule_sms" style="width: 208px;">Schedule Sms</button>
 				</td>
 			</tr>
 			<tr>

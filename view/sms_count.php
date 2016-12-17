@@ -58,27 +58,45 @@
 	$('body').on('click', "#schedule_sms", function(e){
 		var date = $("#date").val();
 		var time = $("#time").val();
-		date_split = date.split('-');
-		time_split = time.split(':');
-		console.log(date_split);
-		console.log(time_split);    
-		var humDate = new Date(Date.UTC(date_split[0],
-		stripLeadingZeroes((date_split[1])-1),
-		stripLeadingZeroes(date_split[2]),
-		stripLeadingZeroes(time_split[0]),
-		stripLeadingZeroes(time_split[1]),00));
-		data = (humDate.getTime());
-		console.log(data);
-		var d = new Date();
-		var seconds = d.getTime();
-		console.log(seconds);
+		date_time = date+" "+time;
+		// console.log(date_time);
+		$("form").submit(function(e){
+			e.preventDefault();
+	         var sender_id = $("#sender_id").val();
+	         var mobile_numbers = $("#mobile_numbers").val();
+	         var message = $("#message").val();
+			if (isDoubleByte(message)) {
+				$('#unicode').prop('checked', true);
+			}
+	         var user_id = $("#user_id").val();
+	        if(document.getElementById('unicode').checked) {
+				var unicode = "checked";
+			} else {
+				var unicode = "not_checked";
+			}
+			$('#schedule_sms').attr("disabled", true);
+			document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
+			window.location.href = "home.php";
+			$.ajax({
+				type: "POST",
+				url: "../controller/send_sms.php",
+				data: {sender_id : sender_id, mobile_numbers : mobile_numbers, message : message, unicode : unicode, user_id : user_id, date_time :date_time},
+				success: function(data) {  
+					console.log(data);   
+					if (data == "Recharge your account") {
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Sorry!</strong>Recharge your account.</div>"; 
+					} else if(data ==  " make sure you enter correct phone numbers "){
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>"+data+"</div>"; 
+					} else if(data ==  "not able to send message due to over content"){
+						document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Oops!</strong>"+data+"</div>"; 
+					} else{
+						document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Success!</strong>Message sent</div>"; 
+					}
+					// setTimeout( function(){ location.reload();  }  , 1000 );
+				}
+			});
+		});
 	});
-	function stripLeadingZeroes(input){
-		if((input.length > 1) && (input.substr(0,1) == "0"))
-			return input.substr(1);
-		else
-			return input;
-	}
 
 	function isNumber(evt) {
 		var theEvent = evt || window.event;

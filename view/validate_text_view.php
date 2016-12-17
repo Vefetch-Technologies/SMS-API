@@ -48,11 +48,12 @@
 					<button type="button" class="btn btn-primary" id="show_schedule" style="width: 208px;">Schedule</button>
 				</td>
 				<td id="schedule">
-					<input type="date" name="date" class="form-control" placeholder="date" id="Date" >
+					<input type="date" name="date" class="form-control" placeholder="Date" id="date" >
 					<br/>
 					<input type="time" name="time" class="form-control" placeholder="Time" id="time" >
 					<br/>
 					<div id="notifier"></div>
+					<button type="submit" class="btn btn-success" id="schedule_sms" style="width: 208px;">Schedule Sms</button>
 				</td>
 			</tr>
 			<tr>
