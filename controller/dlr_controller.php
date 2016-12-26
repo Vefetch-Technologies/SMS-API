@@ -26,8 +26,18 @@
 		}
 	}
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+	function get_qued_data($sender_id){
+		$sql = 'SELECT COUNT(MessageFrom) FROM MessageOut WHERE MessageFrom = '."'".$sender_id."'";
+=======
 	function get_qued_data(){
 		$sql = 'SELECT COUNT(MessageFrom) FROM MessageOut';
+>>>>>>> rubak_works
+=======
+	function get_qued_data(){
+		$sql = 'SELECT COUNT(MessageFrom) FROM MessageOut';
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 		$conn = sms_db_connect("not_checked");
 		$result = execute_query($sql, $conn);
 		$row = get_array_from_object($result);

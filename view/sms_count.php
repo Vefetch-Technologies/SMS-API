@@ -27,8 +27,6 @@
 		}
 		return false;
 	}
-
-
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		message = $("#message").val();
