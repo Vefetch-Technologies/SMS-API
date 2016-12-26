@@ -29,6 +29,7 @@
 		<h1>Enter Your Message</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
+<div class="col-md-6">
 	<form>
 		<table class="table">
 			<tr>
@@ -95,5 +96,23 @@
 			</tr>
 		</table>
 	</form>
-	<div id="response"></div>
-<?php }  include_once '../view/footer.php'; ?>
+</div>
+	<div class="col-md-6">
+	<div id="template" class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title ">Templates</h3>
+		</div>
+		<div class="box-body">
+			<?php 
+				$condition = "`user_id` =".$user_details['id']."";
+				$template = select('`template_content`','`template`',$condition,$conn);
+				// print_r($template);
+				foreach ($template as  $value) {
+					echo "<div class='form-group'><a class='input-group'>".$value['template_content']."</a></div><hr>";
+				} 
+			?>
+		</div>
+	</div>
+</div>
+<hr>
+<div id="response"></div><?php }  include_once '../view/footer.php'; ?>

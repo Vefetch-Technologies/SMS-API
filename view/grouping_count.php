@@ -41,6 +41,11 @@
 	});
 	$(document).ready(function() {
 		$('#schedule').hide();
+		$('.box-body > div > a').on('click', function() {
+			var data = this.innerHTML;
+			// console.log(data);
+			document.getElementById('bulk_message').value = data;
+		});
 	});
 	$('body').on('click', "#show_schedule", function(){
 		$('#schedule').toggle();

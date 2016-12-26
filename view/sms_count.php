@@ -28,6 +28,7 @@
 		return false;
 	}
 
+
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		message = $("#message").val();
@@ -50,6 +51,11 @@
 	});
 	$(document).ready(function() {
 		$('#schedule').hide();
+		$('.box-body > div > a').on('click', function() {
+			var data = this.innerHTML;
+			// console.log(data);
+			document.getElementById('message').value = data;
+		});
 	});
 	$('body').on('click', "#show_schedule", function(){
 		$('#schedule').toggle();
@@ -147,6 +153,7 @@
 			});
 		});
 	});
+
 </script>
 <?php 
 	function get_check_code($for){
