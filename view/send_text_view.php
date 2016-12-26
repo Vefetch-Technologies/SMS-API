@@ -7,26 +7,97 @@
 	// print_r($_POST);
 	$message = $_POST['bulk_message'];
 	$numbers = $_SESSION['numbers'];
-	$count = $_SESSION['user_details']['sms_count'];
+	$count = get_user_sms_count($_SESSION['user_details']['id']);
+	$message_length = iconv_strlen($_POST['bulk_message'] , "UTF-8");
+	$message_count=get_message_count($message_length,$_POST['bulk_unicode']);
+	$total_message_count = count_total_messages($numbers, $message_count);
+	$conn = sms_db_connect($_POST['bulk_unicode']);
+	$failed = 0;
+	// echo $_POST['date_time'];
+	// echo "$date_time";
+
 	// print_r($numbers);
-	// print_r(count($numbers));
-	// print_r($count);
-	if ($count >= count($numbers)) {
-		$i = 0;
-		foreach ($numbers as  $value) {
-			$raw_values['message'] = $message;
-			$raw_values['mobile_numbers'] = $value;
-			$raw_values['unicode'] = $_POST['bulk_unicode'];
-			$raw_values['user_id'] = $_SESSION['user_details']['id'];
-			$raw_values['sender_id'] = $_POST['bulk_sender_id'];
-			process_all_values($raw_values);
-			$i++;
+	if(empty($numbers)){
+		echo " all are fake numbers or invalid numbers we removed it";
+	}else if($count >= $total_message_count) {
+		$number_count = count($numbers);
+
+		if($number_count >= 100){
+			end($numbers);
+			$last_key = key($numbers);
+			$qutioent = $last_key / 100;
+			$total_counting_times = explode(".", $qutioent);
+			echo "<pre>";
+			$splited_numbers = (partition($numbers,  $total_counting_times[0]));
+			foreach ($splited_numbers as $key => $set) {
+				$numbers_count = count($set);
+			 	$where = "";
+			 	foreach ($set as $key => $number) {
+					if($where == ""){
+						$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", "'.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").'")';
+
+					}else{
+						$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", "'.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").'")';
+					}
+				}
+				$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`, `Scheduled`) VALUES ".$where;
+				// echo $sql;
+				// echo "<br/>";
+				mysqli_set_charset($conn, 'utf8mb4'); 
+				if(execute_query($sql, $conn)){
+					$count = get_user_sms_count($_SESSION['user_details']['id']);
+					$total_sms_sent_count = $numbers_count * $message_count;
+					update_user_sms_count($count, $total_sms_sent_count, $_SESSION['user_details']['id']);
+				}else{
+					$failed++;
+				}
+			}  
+		}else{
+			$where = "";
+		 	foreach ($numbers as $key => $number) {
+				if($where == ""){
+					$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").')';
+
+				}else{
+					$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").')';
+				}
+			}
+			$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`, `Scheduled`) VALUES ".$where;
+			// echo $sql;
+			// echo "<br/>";
+			mysqli_set_charset($conn, 'utf8mb4'); 
+			if(execute_query($sql, $conn)){
+				update_user_sms_count($count, $total_message_count, $_SESSION['user_details']['id']);
+			}else{
+				$failed++;
+			}
 		}
-		unset($_SESSION['numbers']);
+		if($failed != 0){
+			echo "Something went wrong! Message not sent successfully";
+		}else{
+			echo "Message Sent Successfully";
+		}
 	}
 	else{
 		echo "Recharge your account";
 	}
 
-	// print_r($test_msg);
+
+
+	function partition( $list, $p ) {
+		$listlen = count( $list );
+		$partlen = floor( $listlen / $p );
+		$partrem = $listlen % $p;
+		$partition = array();
+		$mark = 0;
+		for ($px = 0; $px < $p; $px++) {
+			$incr = ($px < $partrem) ? $partlen + 1 : $partlen;
+			$partition[$px] = array_slice( $list, $mark, $incr );
+			$mark += $incr;
+		}
+		return $partition;
+	}
+
+
+
  ?>

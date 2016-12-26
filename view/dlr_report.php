@@ -2,7 +2,7 @@
     include_once 'header.php'; 
     include_once '../controller/dlr_controller.php';
     $today_sent_failure_reports = get_today_sent_or_failed_data();
-    $today_pending_report = get_qued_data();
+    $today_pending_report = get_qued_data($user_details['sender_id']);
 
  ?>
  <div class="home_header">
@@ -59,7 +59,7 @@
             $delivered++;
           break;
         }
-        $html_content2 = "<td>".++$sno."</td><td>".$today_sent_failure_report['SendTime']."</td><td>".$today_sent_failure_report['MessageText']."</td><td>".$today_sent_failure_report['MessageTo']."</td><td>".$today_sent_failure_report['StatusText']."</td><tr>";
+        $html_content2 = "<td>".++$sno."</td><td>".$today_sent_failure_report['SendTime']."</td><td>".$today_sent_failure_report['MessageText']."</td><td>".$today_sent_failure_report['MessageTo']."</td><td>".$today_sent_failure_report['StatusText']."</td></tr>";
         $total_html = $total_html.$html_content1.$html_content2;
 
       }

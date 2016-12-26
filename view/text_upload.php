@@ -58,7 +58,8 @@
 						echo "<a href='text_view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
 						echo "</td>";
 						echo "<td>";
-						echo "<a href='delete_file.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a>";
+						$file = "../files/".$user_details['email_id']."/".$value['file_name'];
+						echo "<a href='delete_file_text_view.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a><a href='".$file."' download><button type='button' class='btn btn-primary' style='width:208px;margin-left: 1%;'> Download </button></a>";
 						echo "</td>";
 					echo "</tr>";
 				}

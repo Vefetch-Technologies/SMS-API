@@ -25,7 +25,6 @@
 		}else { 
 			return check_message_count_exceeds(check_code("normal",$length));
 		}
-
 	}
 	
 	function check_code($for,$len){
@@ -41,7 +40,7 @@
 		}
 		$i = 1;
 		foreach ($selected_rows as $key => $value) {
-			if($len <= $value){
+			if($len < $value){
 				return $i; 
 			}
 			$i++;
@@ -94,7 +93,7 @@
 			update_user_sms_count($user_sms_count, $total_message_count, $id);
 			// print_r($raw_values);
 			foreach ($phone_numbers as $key => $number) {
-				send_message($raw_values['sender_id'], $number, $raw_values['message'], $raw_values['unicode']);
+				send_message($raw_values['sender_id'], $number, $raw_values['message'], $raw_values['unicode'] , $raw_values['date_time']);
 			}
 
 		}else{

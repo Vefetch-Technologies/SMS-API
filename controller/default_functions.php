@@ -20,13 +20,5 @@ session_start();
 		return $selected_row;
 	}
 
-	function create_session($data){
-		$user_details = $data['0'];
-		$_SESSION["user_details"] = $user_details;
-		if(isset($_SESSION['user_details'])){
-			return true;
-		}
-		return false;
-	}
 
 ?>

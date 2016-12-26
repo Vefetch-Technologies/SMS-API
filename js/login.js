@@ -1,7 +1,6 @@
 
 $( document ).ready(function() {
     $('#login-button').click(function(){
-      console.log("I am in");
       $('#login-button').fadeOut("slow",function(){
         $("#container").fadeIn();
         TweenMax.from("#container", .4, { scale: 0, ease:Sine.easeInOut});
