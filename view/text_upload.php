@@ -59,10 +59,14 @@
 						echo "</td>";
 						echo "<td>";
 <<<<<<< HEAD
+<<<<<<< HEAD
 						$file = "../files/".$user_details['email_id']."/"."$value['file_name']"
 =======
 						$file = "../files/".$user_details['email_id']."/".$value['file_name'];
 >>>>>>> rubak_works
+=======
+						$file = "../files/".$user_details['email_id']."/".$value['file_name'];
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 						echo "<a href='delete_file_text_view.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a><a href='".$file."' download><button type='button' class='btn btn-primary' style='width:208px;margin-left: 1%;'> Download </button></a>";
 						echo "</td>";
 					echo "</tr>";

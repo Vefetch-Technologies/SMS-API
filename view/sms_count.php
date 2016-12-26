@@ -28,7 +28,10 @@
 		return false;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		message = $("#message").val();
@@ -51,11 +54,14 @@
 	});
 	$(document).ready(function() {
 		$('#schedule').hide();
+<<<<<<< HEAD
 		$('.box-body > div > a').on('click', function() {
 			var data = this.innerHTML;
 			// console.log(data);
 			document.getElementById('message').value = data;
 		});
+=======
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 	});
 	$('body').on('click', "#show_schedule", function(){
 		$('#schedule').toggle();

@@ -43,12 +43,17 @@
 					</tr>
 					</thead><tbody>';
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if(count($final_result)>500){
 			$final_result = array_slice($final_result, 0, 500); 
 =======
 		if(count($final_result)>1000){
 			$final_result = array_slice($final_result, 0, 1000); 
 >>>>>>> rubak_works
+=======
+		if(count($final_result)>1000){
+			$final_result = array_slice($final_result, 0, 1000); 
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 		}
 		$i = 1;
 		foreach ($final_result as $value) {

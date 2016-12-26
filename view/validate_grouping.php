@@ -29,7 +29,10 @@
 		<h1>Enter Your Message</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
+<<<<<<< HEAD
 <div class="col-md-6">
+=======
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 	<form>
 		<table class="table">
 			<tr>
@@ -96,6 +99,7 @@
 			</tr>
 		</table>
 	</form>
+<<<<<<< HEAD
 </div>
 	<div class="col-md-6">
 	<div id="template" class="box box-primary">
@@ -116,4 +120,7 @@
 </div>
 <hr>
 <div id="response"></div>
+=======
+	<div id="response"></div>
+>>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 <?php }  include_once '../view/footer.php'; ?>
