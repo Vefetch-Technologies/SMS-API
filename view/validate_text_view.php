@@ -84,6 +84,9 @@
 				$condition = "`user_id` =".$user_details['id']."";
 				$template = select('`template_content`','`template`',$condition,$conn);
 				// print_r($template);
+				if ($template == "empty") {
+					echo "<div class='form-group'><a href='template.php' class='input-group'>No Templates Present, Click to add</a></div><hr>";
+				}
 				foreach ($template as  $value) {
 					echo "<div class='form-group'><a class='input-group'>".$value['template_content']."</a></div><hr>";
 				} 

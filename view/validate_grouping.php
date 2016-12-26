@@ -29,14 +29,7 @@
 		<h1>Enter Your Message</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
-<<<<<<< HEAD
 <div class="col-md-6">
-=======
-<<<<<<< HEAD
-<div class="col-md-6">
-=======
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
->>>>>>> 46d342a269caf4c1470dd8ec68fc506127267892
 	<form>
 		<table class="table">
 			<tr>
@@ -103,10 +96,7 @@
 			</tr>
 		</table>
 	</form>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 46d342a269caf4c1470dd8ec68fc506127267892
+
 </div>
 	<div class="col-md-6">
 	<div id="template" class="box box-primary">
@@ -118,6 +108,9 @@
 				$condition = "`user_id` =".$user_details['id']."";
 				$template = select('`template_content`','`template`',$condition,$conn);
 				// print_r($template);
+				if ($template == "empty") {
+					echo "<div class='form-group'><a href='template.php' class='input-group'>No Templates Present, Click to add</a></div><hr>";
+				}
 				foreach ($template as  $value) {
 					echo "<div class='form-group'><a class='input-group'>".$value['template_content']."</a></div><hr>";
 				} 
@@ -127,10 +120,4 @@
 </div>
 <hr>
 <div id="response"></div>
-<<<<<<< HEAD
-=======
-=======
-	<div id="response"></div>
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
->>>>>>> 46d342a269caf4c1470dd8ec68fc506127267892
 <?php }  include_once '../view/footer.php'; ?>
