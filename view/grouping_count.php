@@ -19,14 +19,6 @@
 			}
 		}
 	}
-	function isDoubleByte(str) {
-		for (var i = 0, n = str.length; i < n; i++) {
-			if (str.charCodeAt( i ) > 255) { 
-				return true; 
-			}
-		}
-		return false;
-	}
 	$('body').on('click', "#bulk_unicode", function(){
 		len = $("#bulk_message").val().length;
 		message = $("#bulk_message").val();
@@ -76,13 +68,13 @@
 				document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 				$('#schedule_sms').attr("disabled", true);
 				// window.open("http://sms2.vefetch.com/");
-			$.ajax({
+				$.ajax({
 				type: "POST",
-				url: "send_bulk_sms.php",
+				url: "send_grouping.php",
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode, date_time :date_time},
 				success: function(data) {  
-					// console.log(data); 
-					document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>Hey!</strong>"+data+" hope it is positive or contact support</div>";          
+					// console.log(data);  
+					document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Hey!</strong>"+data+"</div>"; 
 				}
 			});
 		});
@@ -98,20 +90,21 @@
 			} else {
 				bulk_unicode = "not_checked";
 			}
-			document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
-			$('#send_bulk_sms').attr("disabled", true);
-			window.open("http://sms2.vefetch.com/");
-			$.ajax({
+				document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
+				$('#send_bulk_sms').attr("disabled", true);
+				// window.open("http://sms2.vefetch.com/");
+				$.ajax({
 				type: "POST",
-				url: "send_bulk_sms.php",
+				url: "send_grouping.php",
 				data: {bulk_sender_id : bulk_sender_id, bulk_message : bulk_message, bulk_unicode : bulk_unicode},
 				success: function(data) {  
-					// console.log(data); 
-					document.getElementById('response').innerHTML = "<div class='alert alert-warning'><strong>Hey!</strong>"+data+" hope it is positive or contact support</div>";          
+					// console.log(data);  
+					document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Hey!</strong>"+data+"</div>"; 
 				}
 			});
 		});
-			document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
+		document.getElementById('response').innerHTML = "<div class='alert alert-danger'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
+
 	});
 	function isNumber(evt) {
 		var theEvent = evt || window.event;

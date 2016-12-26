@@ -2,15 +2,15 @@
 	include_once 'header.php'; 
  	include_once 'sms_count.php'; 
 	include_once '../admin/controller/common_functions.php';
- 	
  ?>
 <div>
 	<h1>Single SMS</h1>
 	<hr style="border-top: 1px solid #191616">
 </div>
+<div class="col-md-6">
 	<form action="#">
 		<input type="hidden" id="user_id" value="<?php echo $user_details['id'];?>">
-		<table class="table" style="width:44%;">
+		<table class="table" style="width:100%;">
 			<tr>
 				<td>
 					<p>Sender ID :- </p>
@@ -20,7 +20,7 @@
 						<?php
 							if(is__array($user_details['sender_id'])){
 								foreach ($user_details['sender_id'] as $key => $sender_id) {
-									echo $sender_id;
+									echo "<option>".$sender_id."</option>";
 								} 
 							}else{
 								echo "<option>".$user_details['sender_id']."</option>";
@@ -55,6 +55,19 @@
 			</tr>
 			<tr>
 				<td>
+					<button type="button" class="btn btn-primary" id="show_schedule" style="width: 208px;">Schedule</button>
+				</td>
+				<td id="schedule">
+					<input type="date" name="date" class="form-control" placeholder="Date" id="date" >
+					<br/>
+					<input type="time" name="time" class="form-control" placeholder="Time" id="time" >
+					<br/>
+					<div id="notifier"></div>
+					<button type="submit" class="btn btn-success" id="schedule_sms" style="width: 208px;">Schedule Sms</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
 				</td>
 				<td>
 					<button type="submit" class="btn btn-success" id="send_single_sms" style="width: 208px;">Send SMS</button>
@@ -64,6 +77,25 @@
 			
 		</table>
 	</form>
+</div>
+<div class="col-md-6">
+	<div id="template" class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title ">Templates</h3>
+		</div>
+		<div class="box-body">
+			<?php 
+				$condition = "`user_id` =".$user_details['id']."";
+				$template = select('`template_content`','`template`',$condition,$conn);
+				// print_r($template);
+				foreach ($template as  $value) {
+					echo "<div class='form-group'><a class='input-group'>".$value['template_content']."</a></div><hr>";
+				} 
+			?>
+		</div>
+	</div>
+</div>
 	<hr>
 	<div id="response"></div>
 <?php include_once 'footer.php'; ?>
+

@@ -23,11 +23,11 @@
 ?>
 <div id="response"></div>
 <div>
-	<h1>Bulk SMS</h1>
+	<h1>Grouping</h1>
 	<hr style="border-top: 1px solid #191616">
 </div>
 <h3>Upload File</h3>
-	<form action="../controller/text_upload_controller.php" method="post" enctype="multipart/form-data">
+	<form action="../controller/grouping_controller.php" method="post" enctype="multipart/form-data">
 		<table class="table">
 			<tr>
 				<td>
@@ -55,15 +55,11 @@
 				foreach ($result as $value) {
 					echo "<tr>";
 						echo "<td>";
-						echo "<a href='text_view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
+						echo "<a href='grouping_view.php?file_name=".$value['file_name']."'>".$value['file_name']."</a>";
 						echo "</td>";
 						echo "<td>";
-<<<<<<< HEAD
-						$file = "../files/".$user_details['email_id']."/"."$value['file_name']"
-=======
 						$file = "../files/".$user_details['email_id']."/".$value['file_name'];
->>>>>>> rubak_works
-						echo "<a href='delete_file_text_view.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a><a href='".$file."' download><button type='button' class='btn btn-primary' style='width:208px;margin-left: 1%;'> Download </button></a>";
+						echo "<a href='delete_file_group.php?file_name=".$value['file_name']."'><button type='button' class='btn btn-danger' style='width:208px;'> Delete </button></a><a href='".$file."' download><button type='button' class='btn btn-primary' style='width:208px;margin-left: 1%;'> Download </button></a>";
 						echo "</td>";
 					echo "</tr>";
 				}

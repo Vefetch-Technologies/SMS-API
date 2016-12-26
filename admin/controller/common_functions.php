@@ -1,9 +1,14 @@
 <?php 
 	session_start();
-	function send_message($sender_id, $phone_number, $message_content, $unicode){
+	function send_message($sender_id, $phone_number, $message_content, $unicode ,$date_time){
 		$conn = sms_db_connect($unicode);
-		$sql = "INSERT INTO `MessageOut` (`MessageFrom`, `MessageTo` , `MessageText`) VALUES ('$sender_id', '$phone_number', '$message_content')";
-		// echo $sql;
+		if (emptty($date_time)) {
+			$sql = "INSERT INTO `MessageOut` (`MessageFrom`, `MessageTo` , `MessageText`) VALUES ('$sender_id', '$phone_number', '$message_content')";
+			// echo $sql;
+		}else{
+			$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageFrom`, `MessageText`, `Scheduled`) values ('$phone_number', '$sender_id', '$message_content', '$date_time')";
+			// echo "$sql";
+		}
 		mysqli_set_charset($conn, 'utf8mb4'); 
 		if(execute_query($sql, $conn)){
 			// echo "SMS Sent";
