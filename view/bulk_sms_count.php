@@ -75,7 +75,6 @@
 			}
 				document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 				$('#schedule_sms').attr("disabled", true);
-				// window.open("http://sms2.vefetch.com/");
 			$.ajax({
 				type: "POST",
 				url: "send_bulk_sms.php",
@@ -100,7 +99,6 @@
 			}
 			document.getElementById('response').innerHTML = "<div class='alert alert-success'><strong>Please</strong>Wait a moment we are processing your messages</div>"; 
 			$('#send_bulk_sms').attr("disabled", true);
-			window.open("http://sms2.vefetch.com/");
 			$.ajax({
 				type: "POST",
 				url: "send_bulk_sms.php",

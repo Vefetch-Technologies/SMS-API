@@ -27,6 +27,7 @@
 		}
 		return false;
 	}
+
 	$('body').on('click', "#unicode", function(){
 		len = $("#message").val().length;
 		message = $("#message").val();
@@ -151,7 +152,6 @@
 			});
 		});
 	});
-
 </script>
 <?php 
 	function get_check_code($for){

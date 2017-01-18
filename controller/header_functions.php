@@ -11,7 +11,7 @@
 		}
 		elseif ($selected_values[0]['sms_count']<100) {
 			if ($_SESSION['check_value'] == 1) {
-				send_message("VFETCH", $mobile_number, $message_content, NULL);
+				send_message("VFETCH", $mobile_number, $message_content, NULL, NULL);
 				$_SESSION['check_value'] = 2;
 			}
 		 	return count_color("red",$selected_values[0]['sms_count']);

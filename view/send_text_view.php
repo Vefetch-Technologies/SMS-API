@@ -13,16 +13,9 @@
 	$total_message_count = count_total_messages($numbers, $message_count);
 	$conn = sms_db_connect($_POST['bulk_unicode']);
 	$failed = 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+	$null = "NULL";
 	// echo $_POST['date_time'];
 	// echo "$date_time";
->>>>>>> rubak_works
-=======
-	// echo $_POST['date_time'];
-	// echo "$date_time";
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 
 	// print_r($numbers);
 	if(empty($numbers)){
@@ -42,31 +35,13 @@
 			 	$where = "";
 			 	foreach ($set as $key => $number) {
 					if($where == ""){
-<<<<<<< HEAD
-<<<<<<< HEAD
-						$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'")';
-=======
-						$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", "'.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").'")';
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
+						$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : $null).')';
 
 					}else{
-						$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", "'.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").'")';
-					}
-				}
-<<<<<<< HEAD
-				$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`) VALUES ".$where;
-=======
-						$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", "'.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").'")';
-
-					}else{
-						$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", "'.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").'")';
+						$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : $null).')';
 					}
 				}
 				$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`, `Scheduled`) VALUES ".$where;
->>>>>>> rubak_works
-=======
-				$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`, `Scheduled`) VALUES ".$where;
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 				// echo $sql;
 				// echo "<br/>";
 				mysqli_set_charset($conn, 'utf8mb4'); 
@@ -82,35 +57,15 @@
 			$where = "";
 		 	foreach ($numbers as $key => $number) {
 				if($where == ""){
-<<<<<<< HEAD
-<<<<<<< HEAD
-					$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'")';
-=======
-					$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").')';
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
+					$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : $null).')';
 
 				}else{
-					$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").')';
-				}
-			}
-			$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`, `Scheduled`) VALUES ".$where;
-			// echo $sql;
-<<<<<<< HEAD
-			echo "<br/>";
-=======
-					$where = '("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").')';
-
-				}else{
-					$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : "NULL").')';
+					$where = $where.', ("'.$number.'", "'.$_POST['bulk_message'].'", "'. $_POST['bulk_sender_id'].'", '.(isset($_POST['date_time']) ? '"'.$_POST['date_time'].'"' : $null).')';
 				}
 			}
 			$sql = "INSERT INTO `MessageOut` (`MessageTo`, `MessageText`, `MessageFrom`, `Scheduled`) VALUES ".$where;
 			// echo $sql;
 			// echo "<br/>";
->>>>>>> rubak_works
-=======
-			// echo "<br/>";
->>>>>>> 00083f85bbdb09057e1529570b2c828aef1b29f4
 			mysqli_set_charset($conn, 'utf8mb4'); 
 			if(execute_query($sql, $conn)){
 				update_user_sms_count($count, $total_message_count, $_SESSION['user_details']['id']);

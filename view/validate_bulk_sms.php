@@ -29,8 +29,8 @@
 		<h1>Enter Your Message</h1>
 		<hr style="border-top: 1px solid #191616">
 	</div>
-<div class="col-md-6">
 	<form>
+	<div class="col-md-6">
 		<table class="table">
 			<tr>
 				<td>
@@ -96,7 +96,7 @@
 			</tr>
 		</table>
 	</form>
-</div>
+	</div>
 	<div class="col-md-6">
 	<div id="template" class="box box-primary">
 		<div class="box-header with-border">
@@ -104,18 +104,20 @@
 		</div>
 		<div class="box-body">
 			<?php 
-				$condition = "`user_id` =".$user_details['id']."";
-				$template = select('`template_content`','`template`',$condition,$conn);
-				// print_r($template);
-				if ($template == "empty") {
-					echo "<div class='form-group'><a href='template.php' class='input-group'>No Templates Present, Click to add</a></div><hr>";
-				}
-				foreach ($template as  $value) {
-					echo "<div class='form-group'><a class='input-group'>".$value['template_content']."</a></div><hr>";
-				} 
-			?>
+					$condition = "`user_id` =".$user_details['id']."";
+					$template = select('`template_content`','`template`',$condition,$conn);
+					// print_r($template);
+					if ($template == "empty") {
+						echo "<div class='form-group'><a href='template.php' class='input-group'>No Templates Present, Click to add</a></div><hr>";
+					}else{
+						foreach ($template as  $value) {
+							echo "<div class='form-group'><a class='input-group'>".$value['template_content']."</a></div><hr>";
+						} 
+					}
+				?>
 		</div>
 	</div>
 </div>
 <hr>
-<div id="response"></div><?php }  include_once '../view/footer.php'; ?>
+<div class="col-md-6" style="margin-top: 374px;margin-left: -229px;" id="response"></div>
+<?php }  include_once '../view/footer.php'; ?>
